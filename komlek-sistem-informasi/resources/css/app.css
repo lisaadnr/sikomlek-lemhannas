@@ -1,0 +1,135 @@
+.home-page-child {
+    position: absolute;
+    top: 63px;
+    left: 174px;
+    width: 288px;
+    height: 286px;
+}
+.image-1-icon {
+    position: absolute;
+    top: 0px;
+    left: 613px;
+    width: 698px;
+    height: 832px;
+    object-fit: cover;
+    opacity: 0.75;
+}
+.sistem-informasi {
+    margin: 0;
+}
+.title-txt {
+    width: 100%;
+}
+.title {
+    position: absolute;
+    top: 336px;
+    left: 56px;
+    font-size: 40px;
+    font-family: Poppins;
+    color: #2d033b;
+    display: flex;
+    align-items: center;
+    width: 520px;
+    height: 249px;
+}
+.home-page-item {
+    position: absolute;
+    height: 24.99%;
+    width: 20.7%;
+    top: 11.79%;
+    right: 65.79%;
+    bottom: 63.22%;
+    left: 13.52%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.home-page-inner {
+    position: absolute;
+    top: 722px;
+    left: 267px;
+    border-radius: 15px;
+    background-color: #c147e9;
+    width: 98px;
+    height: 34px;
+    cursor: pointer;
+}
+.login {
+    position: absolute;
+    top: 729px;
+    left: 286px;
+    font-size: 14px;
+    font-family: Inter;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 21px;
+}
+.email {
+    width: 304px;
+    position: relative;
+    line-height: 24px;
+    display: inline-block;
+    flex-shrink: 0;
+}
+.icon {
+    width: 24px;
+    position: relative;
+    height: 24px;
+    overflow: hidden;
+    flex-shrink: 0;
+    opacity: 0;
+}
+.text {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.input-field {
+    position: absolute;
+    top: 573.5px;
+    left: 133.5px;
+    border-radius: 15px;
+    background-color: #e5b8f4;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    width: 354px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 16px;
+    text-align: left;
+}
+.input-field1 {
+    position: absolute;
+    top: 647.5px;
+    left: 133.5px;
+    border-radius: 15px;
+    background-color: #e5b8f4;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    width: 354px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 16px;
+    text-align: left;
+}
+.home-page {
+    width: 100%;
+    position: relative;
+    background-color: #fff;
+    height: 832px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+    font-family: 'Noto Sans';
+}
+
