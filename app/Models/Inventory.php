@@ -9,11 +9,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Inventory extends Model
 {
-    use SoftDeletes;
+    use HasFactory, SoftDeletes;
     public function vendor() {
         return $this->belongsTo(Vendor::class);
     }
-    public function user() {
-        return $this->belongsTo(User::class);
-    }
+    // public function user() {
+    //     return $this->belongsTo(User::class);
+    // }
 }
