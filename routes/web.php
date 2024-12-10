@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\InventoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::resource('inventories', InventoryController::class);
+
+Route::get('/test', function () {
+    return 'Test Route';
+});
 
 Route::get('/', function () {
     return view('welcome');
