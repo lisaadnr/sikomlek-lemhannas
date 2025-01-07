@@ -1,4 +1,3 @@
-Berikut adalah README yang telah diperbaiki dengan format yang lebih terstruktur menggunakan heading:
 # sikomlek-lemhannas
 Website Inventory Hardware Bagian Komputer dan Elektronika
 
