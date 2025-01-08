@@ -7065,7 +7065,6 @@
   .d-block {
     display: block !important;
     font-weight: bold;
-    text-align: center;
   }
   
   .d-table {
@@ -28805,6 +28804,7 @@
     font-size: 1.1rem;
     font-weight: 400;
     margin: 0;
+    text-align: left;
   }
   
   .card-text {
