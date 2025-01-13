@@ -67,8 +67,6 @@
     height: 61px;
     object-fit: cover;
 } */
-
-
   
   article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
     display: block;
@@ -4900,7 +4898,7 @@
   .card-header {
     padding: 0.75rem 1.25rem;
     margin-bottom: 0;
-    background-color: rgba(0, 0, 0, 0.03);
+    background-color: rgba(0, 0, 0);
     border-bottom: 0 solid rgba(0, 0, 0, 0.125);
   }
   
@@ -8151,6 +8149,17 @@
       z-index: 1020;
     }
   }
+
+  .fixed-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px; /* Adjust the width as needed */
+    overflow-y: auto; /* Add this if the sidebar content is long */
+    background-color: #e5b8f4; /* Adjust the background color as needed */
+    z-index: 1000; /* Ensure it stays on top */
+}
   
   .sr-only {
     position: absolute;
@@ -10101,6 +10110,7 @@
   
   .text-left {
     text-align: left !important;
+    margin-left: 0;
   }
   
   .text-right {
@@ -12572,7 +12582,8 @@
   
   .main-sidebar {
     height: 100vh;
-    overflow-y: hidden;
+    overflow-y: auto;
+    position: fixed;
     z-index: 1038;
   }
   
@@ -26668,7 +26679,7 @@
   }
   
   .card-primary:not(.card-outline) > .card-header {
-    background-color: #007bff;
+    background-color: #e5b8f4;
   }
   
   .card-primary:not(.card-outline) > .card-header,
@@ -26685,7 +26696,7 @@
   }
   
   .card-primary.card-outline-tabs > .card-header a:hover {
-    border-top: 3px solid #dee2e6;
+    border-top: 3px solid #e5b8f4;
   }
   
   .card-primary.card-outline-tabs > .card-header a.active,
