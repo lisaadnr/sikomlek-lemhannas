@@ -147,12 +147,13 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Peminjaman Alat</h1>
+                            <h1>Pengembalian Alat</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Peminjaman Alat</li>
+                                <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="pinjamalat.html">Peminjaman Alat</a></li>
+                                <li class="breadcrumb-item active">Pengembalian Alat</li>
                             </ol>
                         </div>
                     </div>
@@ -162,60 +163,92 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
-                    <!-- Persyaratan dan Kewajiban -->
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="card">
+                        <!-- left column -->
+                        <div class="col-12">
+                            <!-- general form elements -->
+                            <div class="card card-primary">
                                 <div class="card-header">
-                                    <h5 class="card-title">Persyaratan Pinjam Alat</h5>
+                                    <h3 class="card-title">Form Pengembalian</h3>
                                 </div>
-                                <div class="card-body">
-                                    <ol>
-                                        <li>ashdkjha</li>
-                                        <li>jdgsdk</li>
-                                        <li>slkdjaksdka</li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
+                                <!-- /.card-header -->
+                                <!-- form start -->
+                                <form>
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Nama Lengkap</label>
+                                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                                placeholder="Masukkan Nama Lengkap">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">NIP/NRP</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                                placeholder="Password">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Unit Kerja</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                                placeholder="Password">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Barang yang Dipinjam</label>
+                                            <select class="form-control">
+                                                <option>option 1</option>
+                                                <option>option 2</option>
+                                                <option>option 3</option>
+                                                <option>option 4</option>
+                                                <option>option 5</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Merk/Type</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                                placeholder="Merk/Type">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">No. Seri</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                                placeholder="No. Seri">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Tanggal Perolehan</label>
+                                            <div class="input-group date" id="reservationdate"
+                                                data-target-input="nearest">
+                                                <input type="text" class="form-control datetimepicker-input"
+                                                    data-target="#reservationdate" />
+                                                <div class="input-group-append" data-target="#reservationdate"
+                                                    data-toggle="datetimepicker">
+                                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Jumlah Unit</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                                placeholder="Jumlah Unit">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Kelengkapan</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                                placeholder="Kelengkapan">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Kondisi</label>
+                                            <select class="form-control">
+                                                <option>Baik</option>
+                                                <option>Rusak</option>
+                                            </select>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12" id="accordion">
 
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5 class="card-title">Kewajiban Pengembalian Alat</h5>
-                                </div>
-                                <div class="card-body">
-                                    <ol>
-                                        <li>ashdkjha</li>
-                                        <li>jdgsdk</li>
-                                        <li>slkdjaksdka</li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Buttons -->
-                        <div class="container d-flex justify-content-center">
-                            <div class="row mt-4 text-center w-100">
-                                <div class="col-md-6 text-center">
-                                    <a href="formpeminjaman.html" class="btn btn-primary btn-lg btn-block">Pinjam</a>
-                                </div>
-                                <div class="col-md-6 text-center">
-                                    <a href="formpengembalian.html" class="btn btn-danger btn-lg btn-block">Kembalikan</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12" id="accordion">
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 mt-3 text-center">
-
-                        </div>
-                    </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 mt-3 text-center">
+                                                <button type="submit" class="btn btn-primary btn-lg">Ajukan</button>
+                                            </div>
+                                        </div>
             </section>
             <!-- /.content -->
         </div>
