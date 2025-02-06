@@ -12,7 +12,7 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="C:\Users\lisa\Downloads\SiKomLek\resources\css\adminlte.css">
+    @vite(['resources/css/adminlte.css'])
     <!-- Bootstrap 4 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -62,7 +62,7 @@
                         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                         <li class="nav-header">DASHBOARD</li>
                         <li class="nav-item">
-                            <a href="dashboard.html" class="nav-link">
+                            <a href="{{ route('pages.dashboard') }}" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i> <!-- Dashboard icon -->
                                 <p>
                                     Dashboard
@@ -75,35 +75,35 @@
                         <li class="nav-header">MANAJEMEN</li>
 
                         <li class="nav-item">
-                            <a href="pinjamalat.html" class="nav-link">
+                            <a href="{{ route('pages.pinjamalat') }}" class="nav-link">
                                 <i class="nav-icon fas fa-tools"></i>
                                 <p>Peminjaman Alat</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="inventory.html" class="nav-link">
+                            <a href="{{ route('pages.inventory') }}" class="nav-link">
                                 <i class="nav-icon fas fa-warehouse"></i>
                                 <p>Inventory Gudang</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="informasialat.html" class="nav-link">
+                            <a href="{{ route('pages.informasialat') }}" class="nav-link">
                                 <i class="nav-icon fas fa-info-circle"></i>
                                 <p>Informasi Alat</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="stok.html" class="nav-link">
+                            <a href="{{ route('pages.stok') }}" class="nav-link">
                                 <i class="nav-icon fas fa-microchip"></i>
                                 <p>Stok Hardware</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="pelatihan.html" class="nav-link">
+                            <a href="{{ route('pages.pelatihan') }}" class="nav-link">
                                 <i class="nav-icon fas fa-chalkboard-teacher"></i>
                                 <p>Info Pelatihan</p>
                             </a>
@@ -113,21 +113,21 @@
                         <li class="nav-header">PENGATURAN</li>
 
                         <li class="nav-item">
-                            <a href="pengaturanakun.html" class="nav-link">
+                            <a href="{{ route('pages.pengaturanakun') }}" class="nav-link">
                                 <i class="nav-icon fas fa-cog"></i>
                                 <p>Pengaturan Akun</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="hakakses.html" class="nav-link">
+                            <a href="{{ route('pages.hakakses') }}" class="nav-link">
                                 <i class="nav-icon fas fa-user-shield"></i>
                                 <p>Peran dan Hak Akses</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="tentang.html" class="nav-link">
+                            <a href="{{ route('pages.tentang') }}" class="nav-link">
                                 <i class="nav-icon fas fa-info"></i>
                                 <p>Tentang SiKomLek</p>
                             </a>
@@ -147,12 +147,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Info Pelatihan Lemhannas</h1>
+                            <h1>Peminjaman Alat</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Info Pelatihan</li>
+                                <li class="breadcrumb-item active">Peminjaman Alat</li>
                             </ol>
                         </div>
                     </div>
@@ -162,29 +162,60 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
+                    <!-- Persyaratan dan Kewajiban -->
                     <div class="row">
-                        <div class="col-md-8">
-                            <h3>Judul Pelatihan</h3>
-                            <a style="margin-bottom: 20px; display: block;">
-                                "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                                laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                                architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
-                                sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
-                                voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit
-                                amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut
-                                labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis
-                                nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi
-                                consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam
-                                nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla
-                                pariatur?"
-                            </a>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">Persyaratan Pinjam Alat</h5>
+                                </div>
+                                <div class="card-body">
+                                    <ol>
+                                        <li>ashdkjha</li>
+                                        <li>jdgsdk</li>
+                                        <li>slkdjaksdka</li>
+                                    </ol>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-4">
-                            <img src="C:\Users\lisa\Downloads\SiKomLek\resources\assets\images\Untitled19_20240105202222.png" alt="Banner Pelatihan" style="width: 100%;">
+
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">Kewajiban Pengembalian Alat</h5>
+                                </div>
+                                <div class="card-body">
+                                    <ol>
+                                        <li>ashdkjha</li>
+                                        <li>jdgsdk</li>
+                                        <li>slkdjaksdka</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="container d-flex justify-content-center">
+                            <div class="row mt-4 text-center w-100">
+                                <div class="col-md-6 text-center">
+                                    <a href="formpeminjaman.html" class="btn btn-primary btn-lg btn-block">Pinjam</a>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    <a href="formpengembalian.html" class="btn btn-danger btn-lg btn-block">Kembalikan</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div class="row">
+                        <div class="col-12" id="accordion">
 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 mt-3 text-center">
+
+                        </div>
+                    </div>
             </section>
             <!-- /.content -->
         </div>

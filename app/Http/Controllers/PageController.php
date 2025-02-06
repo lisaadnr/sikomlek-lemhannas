@@ -20,4 +20,60 @@ class PageController extends Controller
     {
         return view('pages.training');
     }
+
+    public function dashboard()
+    {
+        return view('pages.dashboard');
+    }
+
+    public function formpeminjaman()
+    {
+        return view('pages.formpeminjaman');
+    }
+
+    public function formpengembalian()
+    {
+        return view('pages.formpengembalian');
+    }
+
+    public function hakakses()
+    {
+        return view('pages.hakakses');
+    }
+
+    public function informasialat()
+    {
+        return view('pages.informasialat');
+    }
+
+    public function inventory()
+    {
+        return view('pages.inventory');
+    }
+
+    public function pelatihan()
+    {
+        return view('pages.pelatihan');
+    }
+
+    public function pengaturanakun()
+    {
+        return view('pages.pengaturanakun');
+    }
+
+    public function pinjamalat()
+    {
+        return view('pages.pinjamalat');
+    }
+
+    public function stok()
+    {
+        return view('pages.stok');
+    }
+
+    public function tentang()
+    {
+        return view('pages.tentang');
+    }
+
 }

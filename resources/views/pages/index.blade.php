@@ -1,42 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: 'Arial', sans-serif;
-        }
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="C:\Users\lisa\Downloads\SiKomLek\resources\css\app.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans:wght@400&display=swap" />
 
-        .container {
-            margin-top: 50px;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="header">Home</h1>
-        <div class="row mt-5">
-            <div class="col-md-12">
-                <h3>Menu</h3>
-                <ul class="list-group mb-4">
-                    <li class="list-group-item">
-                        <a href="/pages/about">Tentang Komlek</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="/pages/training">Info Pelatihan</a>
-                    </li>
-                </ul>
+    <section>
+        <div class="home-page">
+            <img class="home-page-child" alt=""
+                src="C:\Users\lisa\Downloads\SiKomLek\resources\assets\images\Group_10.png">
+
+            <img class="image-1-icon" alt="" src="C:\Users\lisa\Downloads\SiKomLek\resources\assets\images\image_1.png">
+
+            <div class="title">
+                <span class="title-txt">
+                    <p class="sistem-informasi">Sistem Informasi</p>
+                    <p class="sistem-informasi">Komunikasi dan Elektronika</p>
+                </span>
+            </div>
+            <img class="home-page-item" alt=""
+                src="C:\Users\lisa\Downloads\SiKomLek\resources\assets\images\Group 10.svg">
+
+        </div>
+
+    </section>
+    <section>
+        <div class="login-form">
+            <div class="input-form">
+                <input type="email" id="email" placeholder="Email" oninput="checkInputs()" />
+            </div>
+
+            <div class="input-form1">
+                <input type="password" id="password" placeholder="Password" oninput="checkInputs()" />
             </div>
         </div>
-    </div>
+
+        <div class="login">
+            <a class="btn btn-primary" href="dashboard.html" role="button">Login</a>
+        </div>
+    </section>
+
+    </section>
+
 </body>
 
 </html>

@@ -12,7 +12,7 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="C:\Users\lisa\Downloads\SiKomLek\resources\css\adminlte.css">
+    @vite(['resources/css/adminlte.css'])
     <!-- Bootstrap 4 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -62,7 +62,7 @@
                         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                         <li class="nav-header">DASHBOARD</li>
                         <li class="nav-item">
-                            <a href="dashboard.html" class="nav-link">
+                            <a href="{{ route('pages.dashboard') }}" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i> <!-- Dashboard icon -->
                                 <p>
                                     Dashboard
@@ -75,35 +75,35 @@
                         <li class="nav-header">MANAJEMEN</li>
 
                         <li class="nav-item">
-                            <a href="pinjamalat.html" class="nav-link">
+                            <a href="{{ route('pages.pinjamalat') }}" class="nav-link">
                                 <i class="nav-icon fas fa-tools"></i>
                                 <p>Peminjaman Alat</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="inventory.html" class="nav-link">
+                            <a href="{{ route('pages.inventory') }}" class="nav-link">
                                 <i class="nav-icon fas fa-warehouse"></i>
                                 <p>Inventory Gudang</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="informasialat.html" class="nav-link">
+                            <a href="{{ route('pages.informasialat') }}" class="nav-link">
                                 <i class="nav-icon fas fa-info-circle"></i>
                                 <p>Informasi Alat</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="stok.html" class="nav-link">
+                            <a href="{{ route('pages.stok') }}" class="nav-link">
                                 <i class="nav-icon fas fa-microchip"></i>
                                 <p>Stok Hardware</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="pelatihan.html" class="nav-link">
+                            <a href="{{ route('pages.pelatihan') }}" class="nav-link">
                                 <i class="nav-icon fas fa-chalkboard-teacher"></i>
                                 <p>Info Pelatihan</p>
                             </a>
@@ -113,21 +113,21 @@
                         <li class="nav-header">PENGATURAN</li>
 
                         <li class="nav-item">
-                            <a href="pengaturanakun.html" class="nav-link">
+                            <a href="{{ route('pages.pengaturanakun') }}" class="nav-link">
                                 <i class="nav-icon fas fa-cog"></i>
                                 <p>Pengaturan Akun</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="hakakses.html" class="nav-link">
+                            <a href="{{ route('pages.hakakses') }}" class="nav-link">
                                 <i class="nav-icon fas fa-user-shield"></i>
                                 <p>Peran dan Hak Akses</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="tentang.html" class="nav-link">
+                            <a href="{{ route('pages.tentang') }}" class="nav-link">
                                 <i class="nav-icon fas fa-info"></i>
                                 <p>Tentang SiKomLek</p>
                             </a>
@@ -147,13 +147,13 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Peminjaman Alat</h1>
+                            <h1>Pengembalian Alat</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
                                 <li class="breadcrumb-item"><a href="pinjamalat.html">Peminjaman Alat</a></li>
-                                <li class="breadcrumb-item active">Pinjam Alat</li>
+                                <li class="breadcrumb-item active">Pengembalian Alat</li>
                             </ol>
                         </div>
                     </div>
@@ -169,7 +169,7 @@
                             <!-- general form elements -->
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Form Peminjaman</h3>
+                                    <h3 class="card-title">Form Pengembalian</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->

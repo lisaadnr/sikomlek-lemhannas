@@ -12,7 +12,7 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="C:\Users\lisa\Downloads\SiKomLek\resources\css\adminlte.css">
+    @vite(['resources/css/adminlte.css'])
     <!-- Bootstrap 4 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -43,7 +43,7 @@
                 </ul>
         </nav>
         <!-- /.navbar -->
-
+        
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Sidebar Tulisan Inventory-->
@@ -62,7 +62,7 @@
                         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                         <li class="nav-header">DASHBOARD</li>
                         <li class="nav-item">
-                            <a href="dashboard.html" class="nav-link">
+                            <a href="{{ route('pages.dashboard') }}" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i> <!-- Dashboard icon -->
                                 <p>
                                     Dashboard
@@ -75,35 +75,35 @@
                         <li class="nav-header">MANAJEMEN</li>
 
                         <li class="nav-item">
-                            <a href="pinjamalat.html" class="nav-link">
+                            <a href="{{ route('pages.pinjamalat') }}" class="nav-link">
                                 <i class="nav-icon fas fa-tools"></i>
                                 <p>Peminjaman Alat</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="inventory.html" class="nav-link">
+                            <a href="{{ route('pages.inventory') }}" class="nav-link">
                                 <i class="nav-icon fas fa-warehouse"></i>
                                 <p>Inventory Gudang</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="informasialat.html" class="nav-link">
+                            <a href="{{ route('pages.informasialat') }}" class="nav-link">
                                 <i class="nav-icon fas fa-info-circle"></i>
                                 <p>Informasi Alat</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="stok.html" class="nav-link">
+                            <a href="{{ route('pages.stok') }}" class="nav-link">
                                 <i class="nav-icon fas fa-microchip"></i>
                                 <p>Stok Hardware</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="pelatihan.html" class="nav-link">
+                            <a href="{{ route('pages.pelatihan') }}" class="nav-link">
                                 <i class="nav-icon fas fa-chalkboard-teacher"></i>
                                 <p>Info Pelatihan</p>
                             </a>
@@ -113,21 +113,21 @@
                         <li class="nav-header">PENGATURAN</li>
 
                         <li class="nav-item">
-                            <a href="pengaturanakun.html" class="nav-link">
+                            <a href="{{ route('pages.pengaturanakun') }}" class="nav-link">
                                 <i class="nav-icon fas fa-cog"></i>
                                 <p>Pengaturan Akun</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="hakakses.html" class="nav-link">
+                            <a href="{{ route('pages.hakakses') }}" class="nav-link">
                                 <i class="nav-icon fas fa-user-shield"></i>
                                 <p>Peran dan Hak Akses</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="tentang.html" class="nav-link">
+                            <a href="{{ route('pages.tentang') }}" class="nav-link">
                                 <i class="nav-icon fas fa-info"></i>
                                 <p>Tentang SiKomLek</p>
                             </a>
@@ -147,12 +147,13 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Pengaturan Akun</h1>
+                            <h1>Peminjaman Alat</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Pengaturan Akun</li>
+                                <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="pinjamalat.html">Peminjaman Alat</a></li>
+                                <li class="breadcrumb-item active">Pinjam Alat</li>
                             </ol>
                         </div>
                     </div>
@@ -162,59 +163,93 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
-            
-                    <!-- Form Pengaturan Akun -->
                     <div class="row">
-                        <div class="col-md-8 offset-md-2">
-                            <div class="card">
+                        <!-- left column -->
+                        <div class="col-12">
+                            <!-- general form elements -->
+                            <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Edit Profil</h3>
+                                    <h3 class="card-title">Form Peminjaman</h3>
                                 </div>
+                                <!-- /.card-header -->
+                                <!-- form start -->
                                 <form>
                                     <div class="card-body">
-                                        <!-- Foto Profil -->
-                                        <div class="form-group text-center">
-                                            <label for="fotoProfil">Foto Profil</label>
-                                            <div class="mb-3">
-                                                <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image" style="width: 100px; height: 100px;">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Nama Lengkap</label>
+                                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                                placeholder="Masukkan Nama Lengkap">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">NIP/NRP</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                                placeholder="Password">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Unit Kerja</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                                placeholder="Password">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Barang yang Dipinjam</label>
+                                            <select class="form-control">
+                                                <option>option 1</option>
+                                                <option>option 2</option>
+                                                <option>option 3</option>
+                                                <option>option 4</option>
+                                                <option>option 5</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Merk/Type</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                                placeholder="Merk/Type">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">No. Seri</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                                placeholder="No. Seri">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Tanggal Perolehan</label>
+                                            <div class="input-group date" id="reservationdate"
+                                                data-target-input="nearest">
+                                                <input type="text" class="form-control datetimepicker-input"
+                                                    data-target="#reservationdate" />
+                                                <div class="input-group-append" data-target="#reservationdate"
+                                                    data-toggle="datetimepicker">
+                                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                </div>
                                             </div>
-                                            <input type="file" class="form-control-file" id="fotoProfil">
                                         </div>
-            
-                                        <!-- Nama Lengkap -->
                                         <div class="form-group">
-                                            <label for="namaLengkap">Nama Lengkap</label>
-                                            <input type="text" class="form-control" id="namaLengkap" placeholder="Masukkan nama lengkap" value="John Doe">
+                                            <label for="exampleInputPassword1">Jumlah Unit</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                                placeholder="Jumlah Unit">
                                         </div>
-            
-                                        <!-- Email -->
                                         <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <input type="email" class="form-control" id="email" placeholder="Masukkan email" value="johndoe@example.com">
+                                            <label for="exampleInputPassword1">Kelengkapan</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                                placeholder="Kelengkapan">
                                         </div>
-            
-                                        <!-- Password -->
                                         <div class="form-group">
-                                            <label for="password">Password Baru</label>
-                                            <input type="password" class="form-control" id="password" placeholder="Masukkan password baru">
+                                            <label>Kondisi</label>
+                                            <select class="form-control">
+                                                <option>Baik</option>
+                                                <option>Rusak</option>
+                                            </select>
                                         </div>
-            
-                                        <!-- Konfirmasi Password -->
-                                        <div class="form-group">
-                                            <label for="konfirmasiPassword">Konfirmasi Password</label>
-                                            <input type="password" class="form-control" id="konfirmasiPassword" placeholder="Konfirmasi password baru">
+                                        <div class="row">
+                                            <div class="col-12" id="accordion">
+
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="card-footer text-center">
-                                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan Perubahan</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                        <div class="row">
+                                            <div class="col-12 mt-3 text-center">
+                                                <button type="submit" class="btn btn-primary btn-lg">Ajukan</button>
+                                            </div>
+                                        </div>
             </section>
-            
             <!-- /.content -->
         </div>
 

@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.bootstrap4.min.css">
 
     <!-- Theme style -->
-    <link rel="stylesheet" href="C:\Users\lisa\Downloads\SiKomLek\resources\css\adminlte.css">
+    @vite(['resources/css/adminlte.css'])
 
 </head>
 
@@ -64,7 +64,7 @@
                         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                         <li class="nav-header">DASHBOARD</li>
                         <li class="nav-item">
-                            <a href="dashboard.html" class="nav-link">
+                            <a href="{{ route('pages.dashboard') }}" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i> <!-- Dashboard icon -->
                                 <p>
                                     Dashboard
@@ -77,35 +77,35 @@
                         <li class="nav-header">MANAJEMEN</li>
 
                         <li class="nav-item">
-                            <a href="pinjamalat.html" class="nav-link">
+                            <a href="{{ route('pages.pinjamalat') }}" class="nav-link">
                                 <i class="nav-icon fas fa-tools"></i>
                                 <p>Peminjaman Alat</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="inventory.html" class="nav-link">
+                            <a href="{{ route('pages.inventory') }}" class="nav-link">
                                 <i class="nav-icon fas fa-warehouse"></i>
                                 <p>Inventory Gudang</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="informasialat.html" class="nav-link">
+                            <a href="{{ route('pages.informasialat') }}" class="nav-link">
                                 <i class="nav-icon fas fa-info-circle"></i>
                                 <p>Informasi Alat</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="stok.html" class="nav-link">
+                            <a href="{{ route('pages.stok') }}" class="nav-link">
                                 <i class="nav-icon fas fa-microchip"></i>
                                 <p>Stok Hardware</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="pelatihan.html" class="nav-link">
+                            <a href="{{ route('pages.pelatihan') }}" class="nav-link">
                                 <i class="nav-icon fas fa-chalkboard-teacher"></i>
                                 <p>Info Pelatihan</p>
                             </a>
@@ -115,21 +115,21 @@
                         <li class="nav-header">PENGATURAN</li>
 
                         <li class="nav-item">
-                            <a href="pengaturanakun.html" class="nav-link">
+                            <a href="{{ route('pages.pengaturanakun') }}" class="nav-link">
                                 <i class="nav-icon fas fa-cog"></i>
                                 <p>Pengaturan Akun</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="hakakses.html" class="nav-link">
+                            <a href="{{ route('pages.hakakses') }}" class="nav-link">
                                 <i class="nav-icon fas fa-user-shield"></i>
                                 <p>Peran dan Hak Akses</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="tentang.html" class="nav-link">
+                            <a href="{{ route('pages.tentang') }}" class="nav-link">
                                 <i class="nav-icon fas fa-info"></i>
                                 <p>Tentang SiKomLek</p>
                             </a>
@@ -141,7 +141,7 @@
             </div>
             <!-- /.sidebar -->
         </aside>
-
+        
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->

@@ -12,7 +12,7 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="C:\Users\lisa\Downloads\SiKomLek\resources\css\adminlte.css">
+    @vite(['resources/css/adminlte.css'])
     <!-- Bootstrap 4 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -62,7 +62,7 @@
                         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                         <li class="nav-header">DASHBOARD</li>
                         <li class="nav-item">
-                            <a href="dashboard.html" class="nav-link">
+                            <a href="{{ route('pages.dashboard') }}" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i> <!-- Dashboard icon -->
                                 <p>
                                     Dashboard
@@ -75,35 +75,35 @@
                         <li class="nav-header">MANAJEMEN</li>
 
                         <li class="nav-item">
-                            <a href="pinjamalat.html" class="nav-link">
+                            <a href="{{ route('pages.pinjamalat') }}" class="nav-link">
                                 <i class="nav-icon fas fa-tools"></i>
                                 <p>Peminjaman Alat</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="inventory.html" class="nav-link">
+                            <a href="{{ route('pages.inventory') }}" class="nav-link">
                                 <i class="nav-icon fas fa-warehouse"></i>
                                 <p>Inventory Gudang</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="informasialat.html" class="nav-link">
+                            <a href="{{ route('pages.informasialat') }}" class="nav-link">
                                 <i class="nav-icon fas fa-info-circle"></i>
                                 <p>Informasi Alat</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="stok.html" class="nav-link">
+                            <a href="{{ route('pages.stok') }}" class="nav-link">
                                 <i class="nav-icon fas fa-microchip"></i>
                                 <p>Stok Hardware</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="pelatihan.html" class="nav-link">
+                            <a href="{{ route('pages.pelatihan') }}" class="nav-link">
                                 <i class="nav-icon fas fa-chalkboard-teacher"></i>
                                 <p>Info Pelatihan</p>
                             </a>
@@ -113,21 +113,21 @@
                         <li class="nav-header">PENGATURAN</li>
 
                         <li class="nav-item">
-                            <a href="pengaturanakun.html" class="nav-link">
+                            <a href="{{ route('pages.pengaturanakun') }}" class="nav-link">
                                 <i class="nav-icon fas fa-cog"></i>
                                 <p>Pengaturan Akun</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="hakakses.html" class="nav-link">
+                            <a href="{{ route('pages.hakakses') }}" class="nav-link">
                                 <i class="nav-icon fas fa-user-shield"></i>
                                 <p>Peran dan Hak Akses</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="tentang.html" class="nav-link">
+                            <a href="{{ route('pages.tentang') }}" class="nav-link">
                                 <i class="nav-icon fas fa-info"></i>
                                 <p>Tentang SiKomLek</p>
                             </a>
@@ -142,64 +142,46 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <section class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1>Manajemen Stok</h1>
-                        </div>
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Stok Hardware</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
-            
-                    <!-- Tombol Tambah Hardware -->
-                    <div class="row mb-3">
-                        <div class="col-12 text-right">
-                            <button class="btn btn-success" data-toggle="modal" data-target="#modalTambahHardware">
-                                <i class="fas fa-plus"></i> Tambah Hardware
-                            </button>
+                    <!-- Header -->
+                    <div class="row mb-4">
+                        <div class="col-12 text-center">
+                            <h1 class="display-4">Pengaturan Hak Akses</h1>
                         </div>
                     </div>
             
-                    <!-- Tabel Stok Hardware -->
+                    <!-- Tabel Hak Akses -->
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Daftar Stok Hardware</h3>
+                                    <h3 class="card-title">Daftar Hak Akses</h3>
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalTambah">
+                                            <i class="fas fa-plus"></i> Tambah Hak Akses
+                                        </button>
+                                    </div>
                                 </div>
                                 <div class="card-body">
-                                    <table class="table table-bordered table-striped">
+                                    <table class="table table-bordered table-hover">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
-                                                <th>Nama Hardware</th>
-                                                <th>Kategori</th>
-                                                <th>Jumlah Stok</th>
-                                                <th>Harga</th>
+                                                <th>No</th>
+                                                <th>Nama Pengguna</th>
+                                                <th>Hak Akses</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td>Keyboard Mechanical</td>
-                                                <td>Input Device</td>
-                                                <td>10</td>
-                                                <td>Rp 750.000</td>
+                                                <td>Administrator</td>
+                                                <td>Admin</td>
                                                 <td>
-                                                    <button class="btn btn-primary btn-sm">
+                                                    <button class="btn btn-warning btn-sm">
                                                         <i class="fas fa-edit"></i> Edit
                                                     </button>
                                                     <button class="btn btn-danger btn-sm">
@@ -207,58 +189,45 @@
                                                     </button>
                                                 </td>
                                             </tr>
-                                            <!-- Tambahkan baris lainnya sesuai kebutuhan -->
+                                            <!-- Tambahkan data lainnya di sini -->
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
             
-                <!-- Modal Tambah Hardware -->
-                <div class="modal fade" id="modalTambahHardware" tabindex="-1" aria-labelledby="modalTambahHardwareLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalTambahHardwareLabel">Tambah Hardware Baru</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                    <!-- Modal Tambah/Edit Hak Akses -->
+                    <div class="modal fade" id="modalTambah" tabindex="-1" aria-labelledby="modalTambahLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalTambahLabel">Tambah Hak Akses</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="namaPengguna">Nama Pengguna</label>
+                                            <input type="text" class="form-control" id="namaPengguna" placeholder="Masukkan nama pengguna">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="hakAkses">Hak Akses</label>
+                                            <select class="form-control" id="hakAkses">
+                                                <option>Admin</option>
+                                                <option>Editor</option>
+                                                <option>Viewer</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                    </div>
+                                </form>
                             </div>
-                            <form>
-                                <div class="modal-body">
-                                    <!-- Nama Hardware -->
-                                    <div class="form-group">
-                                        <label for="namaHardware">Nama Hardware</label>
-                                        <input type="text" class="form-control" id="namaHardware" placeholder="Masukkan nama hardware">
-                                    </div>
-                                    <!-- Kategori -->
-                                    <div class="form-group">
-                                        <label for="kategoriHardware">Kategori</label>
-                                        <select class="form-control" id="kategoriHardware">
-                                            <option>Input Device</option>
-                                            <option>Output Device</option>
-                                            <option>Storage Device</option>
-                                            <option>Networking Device</option>
-                                        </select>
-                                    </div>
-                                    <!-- Jumlah Stok -->
-                                    <div class="form-group">
-                                        <label for="jumlahStok">Jumlah Stok</label>
-                                        <input type="number" class="form-control" id="jumlahStok" placeholder="Masukkan jumlah stok">
-                                    </div>
-                                    <!-- Harga -->
-                                    <div class="form-group">
-                                        <label for="hargaHardware">Harga</label>
-                                        <input type="number" class="form-control" id="hargaHardware" placeholder="Masukkan harga">
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                    <button type="submit" class="btn btn-success">Simpan</button>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>
