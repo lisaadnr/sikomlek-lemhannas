@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="C:\Users\lisa\Downloads\SiKomLek\resources\css\app.css" />
+    @vite(['resources/css/app.css'])
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans:wght@400&display=swap" />
@@ -19,20 +19,15 @@
 <body>
     <section>
         <div class="home-page">
-            <img class="home-page-child" alt=""
-                src="C:\Users\lisa\Downloads\SiKomLek\resources\assets\images\Group_10.png">
-
-            <img class="image-1-icon" alt="" src="C:\Users\lisa\Downloads\SiKomLek\resources\assets\images\image_1.png">
-
+            <img class="home-page-child" alt="" src="{{ asset('img/Group_10.png') }}">
+            <img class="image-1-icon" alt="" src="{{ asset('img/image_1.png') }}">
             <div class="title">
                 <span class="title-txt">
                     <p class="sistem-informasi">Sistem Informasi</p>
                     <p class="sistem-informasi">Komunikasi dan Elektronika</p>
                 </span>
             </div>
-            <img class="home-page-item" alt=""
-                src="C:\Users\lisa\Downloads\SiKomLek\resources\assets\images\Group 10.svg">
-
+            <img class="home-page-item" alt="" src="{{ asset('img/Group 10.svg') }}">
         </div>
 
     </section>

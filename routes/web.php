@@ -62,10 +62,8 @@ Route::prefix('pages')->name('pages.')->group(function () {
     Route::get('pinjamalat', [PageController::class, 'pinjamalat'])->name('pinjamalat');
     Route::get('stok', [PageController::class, 'stok'])->name('stok');
     Route::get('tentang', [PageController::class, 'tentang'])->name('tentang');
+    Route::get('index', [PageController::class, 'index'])->name('index');
 });
-
-
-Route::get('/', [PageController::class, 'index'])->name('home');
 
 
 Route::resource('inventories', InventoryController::class);
