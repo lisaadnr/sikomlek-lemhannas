@@ -6,14 +6,9 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function index()
+    public function login()
     {
-        return view('pages.index'); // Ubah view ke resources/views/pages/index.blade.php
-    }
-
-    public function about()
-    {
-        return view('pages.about');
+        return view('pages.login'); 
     }
 
     public function training()

@@ -16,8 +16,7 @@ use App\Http\Controllers\PageController;
 */
 
 Route::resource('pages', PageController::class)->only([
-    'index',
-    'about',
+    'login',
     'training',
     'dashboard',
     'formpeminjaman',
@@ -32,8 +31,7 @@ Route::resource('pages', PageController::class)->only([
     'tentang'
 
 ])->names([
-    'index' => 'pages.index',
-    'about' => 'pages.about',
+    'pages.login' => 'pages.login',
     'training' => 'pages.training',
     'dashboard' => 'pages.dashboard',
     'formpeminjaman' => 'pages.formpeminjaman',
@@ -49,7 +47,6 @@ Route::resource('pages', PageController::class)->only([
 ]);
 
 Route::prefix('pages')->name('pages.')->group(function () {
-    Route::get('about', [PageController::class, 'about'])->name('about');
     Route::get('training', [PageController::class, 'training'])->name('training');
     Route::get('dashboard', [PageController::class, 'dashboard'])->name('dashboard');
     Route::get('formpeminjaman', [PageController::class, 'formpeminjaman'])->name('formpeminjaman');
@@ -62,8 +59,11 @@ Route::prefix('pages')->name('pages.')->group(function () {
     Route::get('pinjamalat', [PageController::class, 'pinjamalat'])->name('pinjamalat');
     Route::get('stok', [PageController::class, 'stok'])->name('stok');
     Route::get('tentang', [PageController::class, 'tentang'])->name('tentang');
-    Route::get('index', [PageController::class, 'index'])->name('index');
+    Route::get('login', [PageController::class, 'login'])->name('login');
 });
 
+Route::get('/', function () {
+    return view('pages.login');
+})->name('login');
 
 Route::resource('inventories', InventoryController::class);
