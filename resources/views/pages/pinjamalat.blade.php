@@ -15,7 +15,8 @@
     @vite(['resources/css/adminlte.css'])
     <!-- Bootstrap 4 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
+    <!-- Title -->
+    <title>Pinjam | SiKomLek</title>
 </head>
 
 <body class="hold-transition sidebar-mini sidebar-collapse">

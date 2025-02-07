@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans:wght@400&display=swap" />
     @vite(['resources/css/app.css'])
+    <!-- Title -->
     <title>Login | SisInfoKomLek</title>
 </head>
 
