@@ -71,4 +71,10 @@ class PageController extends Controller
         return view('pages.tentang');
     }
 
+    public function tes()
+    {
+        return view('pages.tes');
+    }
+
+
 }

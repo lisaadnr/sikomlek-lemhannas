@@ -16,131 +16,13 @@
     <!-- Bootstrap 4 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Title -->
-    <title>Peminjaman | SiKomLek</title>
+    <title>Peminjaman | SiKomLek</title>    
 </head>
 
-<body class="hold-transition sidebar-mini sidebar-collapse">
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
     <!-- Site wrapper -->
     <div class="wrapper">
-        <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-
-            <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto">
-                <!-- Navbar Search -->
-                <ul class="navbar-nav ml-auto">
-                    <!-- User Profile -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" data-toggle="dropdown" href="#" role="button">
-                            <i class="fas fa-user"></i>
-                            <span class="ml-2">Hello, Administrator!</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                            <i class="fas fa-expand-arrows-alt"></i>
-                        </a>
-                    </li>
-                </ul>
-        </nav>
-        <!-- /.navbar -->
-        
-        <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <!-- Sidebar Tulisan Inventory-->
-            <div class="sidebar">
-                <!-- Sidebar user (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="info">
-                        <a class="d-block">Inventory</a>
-                    </div>
-                </div>
-
-                <!-- Sidebar Menu -->
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                        data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
-                        <li class="nav-header">DASHBOARD</li>
-                        <li class="nav-item">
-                            <a href="{{ route('pages.dashboard') }}" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i> <!-- Dashboard icon -->
-                                <p>
-                                    Dashboard
-                                </p>
-                            </a>
-                        </li>
-                        <!-- Sidebar Menu -->
-
-                        <!-- MANAJEMEN Section -->
-                        <li class="nav-header">MANAJEMEN</li>
-
-                        <li class="nav-item">
-                            <a href="{{ route('pages.pinjamalat') }}" class="nav-link">
-                                <i class="nav-icon fas fa-tools"></i>
-                                <p>Peminjaman Alat</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{ route('pages.inventory') }}" class="nav-link">
-                                <i class="nav-icon fas fa-warehouse"></i>
-                                <p>Inventory Gudang</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{ route('pages.informasialat') }}" class="nav-link">
-                                <i class="nav-icon fas fa-info-circle"></i>
-                                <p>Informasi Alat</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{ route('pages.stok') }}" class="nav-link">
-                                <i class="nav-icon fas fa-microchip"></i>
-                                <p>Stok Hardware</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{ route('pages.pelatihan') }}" class="nav-link">
-                                <i class="nav-icon fas fa-chalkboard-teacher"></i>
-                                <p>Info Pelatihan</p>
-                            </a>
-                        </li>
-
-                        <!-- PENGATURAN Section -->
-                        <li class="nav-header">PENGATURAN</li>
-
-                        <li class="nav-item">
-                            <a href="{{ route('pages.pengaturanakun') }}" class="nav-link">
-                                <i class="nav-icon fas fa-cog"></i>
-                                <p>Pengaturan Akun</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{ route('pages.hakakses') }}" class="nav-link">
-                                <i class="nav-icon fas fa-user-shield"></i>
-                                <p>Peran dan Hak Akses</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{ route('pages.tentang') }}" class="nav-link">
-                                <i class="nav-icon fas fa-info"></i>
-                                <p>Tentang SiKomLek</p>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-
-                <!-- /.sidebar-menu -->
-            </div>
-            <!-- /.sidebar -->
-        </aside>
-
+    @include('layout.sidebar')
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
