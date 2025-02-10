@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .image-container {
     height: 100vh; /* Sesuaikan dengan tinggi layar */
     overflow: hidden; /* Hindari scroll akibat gambar terlalu besar */

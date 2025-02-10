@@ -6,11 +6,6 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function login()
-    {
-        return view('pages.login'); 
-    }
-
     public function training()
     {
         return view('pages.training');

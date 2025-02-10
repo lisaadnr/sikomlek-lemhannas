@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\NavbarController;
 
@@ -16,8 +16,23 @@ use App\Http\Controllers\NavbarController;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/pages/dashboard', function () {
+    return view('pages.dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
+
 Route::resource('pages', PageController::class)->only([
-    'login',
     'training',
     'dashboard',
     'formpeminjaman',
@@ -33,7 +48,6 @@ Route::resource('pages', PageController::class)->only([
     'tes'
 
 ])->names([
-    'pages.login' => 'pages.login',
     'training' => 'pages.training',
     'dashboard' => 'pages.dashboard',
     'formpeminjaman' => 'pages.formpeminjaman',
@@ -62,13 +76,9 @@ Route::prefix('pages')->name('pages.')->group(function () {
     Route::get('pinjamalat', [PageController::class, 'pinjamalat'])->name('pinjamalat');
     Route::get('stok', [PageController::class, 'stok'])->name('stok');
     Route::get('tentang', [PageController::class, 'tentang'])->name('tentang');
-    Route::get('login', [PageController::class, 'login'])->name('login');
     Route::get('tes', [PageController::class, 'tes'])->name('tes');
 });
 
-Route::get('/', function () {
-    return view('pages.login');
-})->name('login');
 
 Route::get('/navbar', [NavbarController::class, 'index'])->name('navbar');
 
