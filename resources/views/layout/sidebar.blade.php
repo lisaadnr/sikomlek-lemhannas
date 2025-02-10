@@ -104,6 +104,16 @@
                             <p>Tentang SiKomLek</p>
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i class="nav-icon fas fa-door-open"></i>
+                            <p>Logout</p>         
+                        </a>
+                        <form id="logout-form" method="POST" action="{{ route('logout') }}" class="d-none">
+                            @csrf
+                        </form>
+                    </li>   
                 </li>
             </ul>
         </nav>

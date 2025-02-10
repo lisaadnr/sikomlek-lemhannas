@@ -21,11 +21,6 @@
     @include('layout.sidebar')
    <!-- Content Wrapper. Contains page content -->
    <div class="content-wrapper">
-             <!-- Tombol Logout -->
-             <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button type="submit" class="btn btn-danger mt-3">Logout</button>
-                </form>
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <div class="container-fluid">
