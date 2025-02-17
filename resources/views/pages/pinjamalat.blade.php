@@ -35,7 +35,7 @@
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('pages.dashboard') }}">Dashboard</a></li>
                                 <li class="breadcrumb-item active">Peminjaman Alat</li>
                             </ol>
                         </div>
@@ -82,10 +82,10 @@
                         <div class="container d-flex justify-content-center">
                             <div class="row mt-4 text-center w-100">
                                 <div class="col-md-6 text-center">
-                                    <a href="formpeminjaman.html" class="btn btn-primary btn-lg btn-block">Pinjam</a>
+                                    <a href="{{ route('pages.formpeminjaman') }}" class="btn btn-primary btn-lg btn-block">Pinjam</a>
                                 </div>
                                 <div class="col-md-6 text-center">
-                                    <a href="formpengembalian.html" class="btn btn-danger btn-lg btn-block">Kembalikan</a>
+                                    <a href="{{ route('pages.formpengembalian') }}" class="btn btn-danger btn-lg btn-block">Kembalikan</a>
                                 </div>
                             </div>
                         </div>

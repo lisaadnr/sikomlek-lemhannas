@@ -34,8 +34,8 @@
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
-                                <li class="breadcrumb-item"><a href="pinjamalat.html">Peminjaman Alat</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('pages.dashboard') }}">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('pages.pinjamalat') }}">Peminjaman Alat</a></li>
                                 <li class="breadcrumb-item active">Pinjam Alat</li>
                             </ol>
                         </div>
