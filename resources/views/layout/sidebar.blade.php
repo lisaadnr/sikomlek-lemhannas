@@ -6,22 +6,28 @@
     </ul>
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-                <!-- Navbar Search -->
-                <ul class="navbar-nav ml-auto">
-                    <!-- User Profile -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" data-toggle="dropdown" href="#" role="button">
-                            <i class="fas fa-user"></i>
-                            <span class="ml-2">Hello, Administrator!</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                            <i class="fas fa-expand-arrows-alt"></i>
-                        </a>
-                    </li>
-                </ul>
-         </ul>
+        <!-- Navbar Search -->
+        <ul class="navbar-nav ml-auto">
+            <!-- User Profile -->
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#" role="button">
+                    <i class="fas fa-user"></i>
+                    <span class="ml-2">Selamat datang,
+                        @auth
+                            {{ Auth::user()->username }}
+                        @else
+                            user
+                        @endauth
+                    </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                </a>
+            </li>
+        </ul>
+    </ul>
 
     </nav>
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -42,78 +48,126 @@
                         </a>
                     </li>
                     <!-- Sidebar Menu -->
+                    @if(Auth::check())
+                        <!-- MANAJEMEN Section -->
+                        <li class="nav-header">MANAJEMEN</li>
 
-                    <!-- MANAJEMEN Section -->
-                    <li class="nav-header">MANAJEMEN</li>
+                        <li class="nav-item">
+                            <a href="{{ route('pages.stok') }}" class="nav-link">
+                                <i class="nav-icon fas fa-microchip"></i>
+                                <p>Stok Hardware</p>
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                                <a href="{{ route('pages.pinjamalat') }}" class="nav-link">
+                                    <i class="nav-icon fas fa-tools"></i>
+                                    <p>Peminjaman Alat</p>
+                                </a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a href="{{ route('pages.pinjamalat') }}" class="nav-link">
-                            <i class="nav-icon fas fa-tools"></i>
-                            <p>Peminjaman Alat</p>
-                        </a>
-                    </li>
+                        <li class="nav-item">
+                            <a href="{{ route('pages.inventory') }}" class="nav-link">
+                                <i class="nav-icon fas fa-warehouse"></i>
+                                <p>Persediaan Gudang</p>
+                            </a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a href="{{ route('pages.inventory') }}" class="nav-link">
-                            <i class="nav-icon fas fa-warehouse"></i>
-                            <p>Inventory Gudang</p>
-                        </a>
-                    </li>
+                        <li class="nav-item">
+                            <a href="{{ route('pages.informasialat') }}" class="nav-link">
+                                <i class="nav-icon fas fa-info-circle"></i>
+                                <p>Informasi Alat</p>
+                            </a>
+                        </li>
+                        <!-- PENGATURAN Section -->
+                        <li class="nav-header">PENGATURAN</li>
 
-                    <li class="nav-item">
-                        <a href="{{ route('pages.informasialat') }}" class="nav-link">
-                            <i class="nav-icon fas fa-info-circle"></i>
-                            <p>Informasi Alat</p>
-                        </a>
-                    </li>
+                        <li class="nav-item">
+                            <a href="{{ route('pages.pengaturanakun') }}" class="nav-link">
+                                <i class="nav-icon fas fa-cog"></i>
+                                <p>Pengaturan Akun</p>
+                            </a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a href="{{ route('pages.stok') }}" class="nav-link">
-                            <i class="nav-icon fas fa-microchip"></i>
-                            <p>Stok Hardware</p>
-                        </a>
-                    </li>
+                        <li class="nav-item">
+                            <a href="{{ route('pages.hakakses') }}" class="nav-link">
+                                <i class="nav-icon fas fa-user-shield"></i>
+                                <p>Peran dan Hak Akses</p>
+                            </a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a href="{{ route('pages.pelatihan') }}" class="nav-link">
-                            <i class="nav-icon fas fa-chalkboard-teacher"></i>
-                            <p>Info Pelatihan</p>
-                        </a>
-                    </li>
+                        <!-- Jika user belum login, tampilkan menu login dan register -->
+                        <li class="nav-header">LAINNYA</li>
+                        <li class="nav-item">
+                            <a href="{{ route('pages.pelatihan') }}" class="nav-link">
+                                <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                                <p>Info Pelatihan</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('pages.tentang') }}" class="nav-link">
+                                <i class="nav-icon fas fa-info"></i>
+                                <p>Tentang SiKomLek</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="nav-icon fas fa-door-open"></i>
+                                <p>Logout</p>         
+                            </a>
+                            <form id="logout-form" method="POST" action="{{ route('logout') }}" class="d-none">
+                                @csrf
+                            </form>
+                        </li>
+                    @else
+                        <li class="nav-header">MANAJEMEN</li>
+                        <li class="nav-item">
+                            <a href="{{ route('pages.pinjamalat') }}" class="nav-link">
+                                <i class="nav-icon fas fa-tools"></i>
+                                <p>Peminjaman Alat</p>
+                            </a>
+                        </li>
 
-                    <!-- PENGATURAN Section -->
-                    <li class="nav-header">PENGATURAN</li>
+                        <li class="nav-item">
+                            <a href="{{ route('pages.inventory') }}" class="nav-link">
+                                <i class="nav-icon fas fa-warehouse"></i>
+                                <p>Persediaan Gudang</p>
+                            </a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a href="{{ route('pages.pengaturanakun') }}" class="nav-link">
-                            <i class="nav-icon fas fa-cog"></i>
-                            <p>Pengaturan Akun</p>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="{{ route('pages.hakakses') }}" class="nav-link">
-                            <i class="nav-icon fas fa-user-shield"></i>
-                            <p>Peran dan Hak Akses</p>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="{{ route('pages.tentang') }}" class="nav-link">
-                            <i class="nav-icon fas fa-info"></i>
-                            <p>Tentang SiKomLek</p>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            <i class="nav-icon fas fa-door-open"></i>
-                            <p>Logout</p>         
-                        </a>
-                        <form id="logout-form" method="POST" action="{{ route('logout') }}" class="d-none">
-                            @csrf
-                        </form>
-                    </li>   
+                        <li class="nav-item">
+                            <a href="{{ route('pages.informasialat') }}" class="nav-link">
+                                <i class="nav-icon fas fa-info-circle"></i>
+                                <p>Informasi Alat</p>
+                            </a>
+                        </li>
+                        <!-- Jika user belum login, tampilkan menu login dan register -->
+                        <li class="nav-header">LAINNYA</li>
+                        <li class="nav-item">
+                            <a href="{{ route('pages.pelatihan') }}" class="nav-link">
+                                <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                                <p>Info Pelatihan</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('pages.tentang') }}" class="nav-link">
+                                <i class="nav-icon fas fa-info"></i>
+                                <p>Tentang SiKomLek</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('login') }}" class="nav-link">
+                                <i class="nav-icon fas fa-sign-in-alt"></i>
+                                <p>Login</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('register') }}" class="nav-link">
+                                <i class="nav-icon fas fa-user-plus"></i>
+                                <p>Register</p>
+                            </a>
+                        </li>
+                    @endif       
                 </li>
             </ul>
         </nav>

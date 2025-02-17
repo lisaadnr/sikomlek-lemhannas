@@ -17,12 +17,14 @@ use App\Http\Controllers\NavbarController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.dashboard');
 });
 
+/*
 Route::get('/pages/dashboard', function () {
     return view('pages.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+*/
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
