@@ -53,7 +53,7 @@
                         <li class="nav-header">MANAJEMEN</li>
 
                         <li class="nav-item">
-                            <a href="{{ route('pages.stok') }}" class="nav-link">
+                            <a href="{{ route('stok.index') }}" class="nav-link">
                                 <i class="nav-icon fas fa-microchip"></i>
                                 <p>Stok Hardware</p>
                             </a>

@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\NavbarController;
+use App\Http\Controllers\InventarisController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -84,4 +86,5 @@ Route::prefix('pages')->name('pages.')->group(function () {
 
 Route::get('/navbar', [NavbarController::class, 'index'])->name('navbar');
 
-Route::resource('inventories', InventoryController::class);
+Route::resource('/pages/stok', InventarisController::class);
+

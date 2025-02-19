@@ -45,6 +45,7 @@
             </section>
 
             <!-- Main content -->
+             
             <section class="content">
                 <div class="container-fluid">
             
@@ -68,21 +69,31 @@
                                     <table class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
+                                                <th>No.</th>
                                                 <th>Nama Hardware</th>
-                                                <th>Kategori</th>
-                                                <th>Jumlah Stok</th>
-                                                <th>Harga</th>
-                                                <th>Aksi</th>
+                                                <th>Merek</th>
+                                                <th>Tipe</th>
+                                                <th>Jumlah</th>
+                                                <th>Tahun Pengadaan</th>
+                                                <th>Penyedia</th>
+                                                <th>No. Kontrak</th>
+                                                <th>Ket.</th>
+                                                <th>Lokasi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach($inventaris as $index => $barang)
                                             <tr>
-                                                <td>1</td>
-                                                <td>Keyboard Mechanical</td>
-                                                <td>Input Device</td>
-                                                <td>10</td>
-                                                <td>Rp 750.000</td>
+                                                <td>{{ $index + 1 }}</td>
+                                                <td>{{ $barang->nama_barang }}</td>
+                                                <td>{{ $barang->merek }}</td>
+                                                <td>{{ $barang->tipe }}</td>
+                                                <td>{{ $barang->jumlah }}</td>
+                                                <td>{{ $barang->tahun_pengadaan }}</td>
+                                                <td>{{ $barang->penyedia }}</td>
+                                                <td>{{ $barang->nomor_kontrak }}</td>
+                                                <td>{{ $barang->keterangan }}</td>
+                                                <td>{{ $barang->lokasi }}</td>
                                                 <td>
                                                     <button class="btn btn-primary btn-sm">
                                                         <i class="fas fa-edit"></i> Edit
@@ -92,7 +103,7 @@
                                                     </button>
                                                 </td>
                                             </tr>
-                                            <!-- Tambahkan baris lainnya sesuai kebutuhan -->
+                                            @endforeach       
                                         </tbody>
                                     </table>
                                 </div>
@@ -111,32 +122,44 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form>
+                            <form action="{{ route('stok.store') }}" method="POST">
                                 <div class="modal-body">
                                     <!-- Nama Hardware -->
                                     <div class="form-group">
                                         <label for="namaHardware">Nama Hardware</label>
-                                        <input type="text" class="form-control" id="namaHardware" placeholder="Masukkan nama hardware">
+                                        <input type="text" class="form-control" id="namaHardware" placeholder="Masukkan nama hardware" required>
                                     </div>
-                                    <!-- Kategori -->
                                     <div class="form-group">
-                                        <label for="kategoriHardware">Kategori</label>
-                                        <select class="form-control" id="kategoriHardware">
-                                            <option>Input Device</option>
-                                            <option>Output Device</option>
-                                            <option>Storage Device</option>
-                                            <option>Networking Device</option>
-                                        </select>
+                                        <label for="merekBarang">Merek</label>
+                                        <input type="text" class="form-control" id="merekBarang" placeholder="Masukkan nama merek" required>
                                     </div>
-                                    <!-- Jumlah Stok -->
                                     <div class="form-group">
-                                        <label for="jumlahStok">Jumlah Stok</label>
-                                        <input type="number" class="form-control" id="jumlahStok" placeholder="Masukkan jumlah stok">
+                                        <label for="tipeBarang">Tipe</label>
+                                        <input type="text" class="form-control" id="tipeBarang" placeholder="Masukkan tipe" required>
                                     </div>
-                                    <!-- Harga -->
                                     <div class="form-group">
-                                        <label for="hargaHardware">Harga</label>
-                                        <input type="number" class="form-control" id="hargaHardware" placeholder="Masukkan harga">
+                                        <label for="jumlahBarang">Jumlah</label>
+                                        <input type="text" class="form-control" id="jumlahBarang" placeholder="Masukkan jumlah barang" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tahunPengadaan">Tahun Pengadaan</label>
+                                        <input type="text" class="form-control" id="tahunPengadaan" placeholder="Masukkan tahun pengadaan" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="penyedia">Penyedia</label>
+                                        <input type="text" class="form-control" id="penyedia" placeholder="Masukkan tahun pengadaan" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nomorKontrak">Nomor Kontrak</label>
+                                        <input type="text" class="form-control" id="nomorKontrak" placeholder="Masukkan nomor kontrak" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="keterangan">Keterangan</label>
+                                        <input type="text" class="form-control" id="keterangan" placeholder="Masukkan keterangan barang" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lokasi">Lokasi</label>
+                                        <input type="text" class="form-control" id="lokasi" placeholder="Masukkan lokasi" required>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
