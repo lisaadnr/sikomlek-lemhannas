@@ -87,4 +87,4 @@ Route::prefix('pages')->name('pages.')->group(function () {
 Route::get('/navbar', [NavbarController::class, 'index'])->name('navbar');
 
 Route::resource('/pages/stok', InventarisController::class);
-
+Route::get('/pages/dashboard', [InventarisController::class, 'jumlahBarang'])->name('pages.dashboard');

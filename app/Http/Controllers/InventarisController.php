@@ -14,6 +14,12 @@ class InventarisController extends Controller
     {
         $inventaris = Inventaris::all();
         return view('pages.stok', compact('inventaris'));
+
+    }
+
+    public function jumlahBarang(){
+        $totalBarang = Inventaris::sum('jumlah');
+        return view('pages.dashboard', compact('totalBarang'));
     }
 
     /**

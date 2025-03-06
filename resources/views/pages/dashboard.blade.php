@@ -50,8 +50,7 @@
                                             <!-- small card -->
                                             <div class="small-box bg-info">
                                                 <div class="inner">
-                                                    <h3>150</h3>
-
+                                                    <h3>{{ $totalBarang }}</h3>
                                                     <p>Total Barang</p>
                                                 </div>
                                                 <div class="icon">
@@ -67,7 +66,7 @@
                                             <!-- small card -->
                                             <div class="small-box bg-success">
                                                 <div class="inner">
-                                                    <h3>53</h3>
+                                                    <h3>n</h3>
 
                                                     <p>Barang Tersedia</p>
                                                 </div>
@@ -79,12 +78,12 @@
                                                 </a>
                                             </div>
                                         </div>
-                                                                                <!-- ./col -->
-                                                                                <div class="col-lg-3 col-6">
+                                        <!-- ./col -->
+                                        <div class="col-lg-3 col-6">
                                             <!-- small card -->
                                             <div class="small-box bg-danger">
                                                 <div class="inner">
-                                                    <h3>65</h3>
+                                                    <h3>n</h3>
                                                     <p>Barang Rusak</p>
                                                 </div>
                                                 <div class="icon">
@@ -101,7 +100,7 @@
                                             <!-- small card -->
                                             <div class="small-box bg-warning">
                                                 <div class="inner">
-                                                    <h3>44</h3>
+                                                    <h3>n</h3>
 
                                                     <p>Barang Dipinjam</p>
                                                 </div>
