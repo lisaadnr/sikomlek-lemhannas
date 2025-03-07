@@ -21,5 +21,8 @@ class Inventaris extends Model
         'nomorKontrak',
         'keterangan',
         'lokasi',
+        'tersedia',
+        'terpinjam',
+        'rusak',
     ];
 }

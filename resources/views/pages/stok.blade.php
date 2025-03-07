@@ -79,6 +79,9 @@
                                                 <th>No. Kontrak</th>
                                                 <th>Ket.</th>
                                                 <th>Lokasi</th>
+                                                <th>Tersedia</th>
+                                                <th>Terpinjam</th>
+                                                <th>Rusak</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -94,6 +97,9 @@
                                                 <td>{{ $barang->nomor_kontrak }}</td>
                                                 <td>{{ $barang->keterangan }}</td>
                                                 <td>{{ $barang->lokasi }}</td>
+                                                <td>{{ $barang->tersedia }}</td>
+                                                <td>{{ $barang->terpinjam }}</td>
+                                                <td>{{ $barang->rusak }}</td>
                                                 <td>
                                                     <button class="btn btn-primary btn-sm">
                                                         <i class="fas fa-edit"></i> Edit
@@ -139,11 +145,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="jumlahBarang">Jumlah</label>
-                                        <input type="text" class="form-control" id="jumlahBarang" placeholder="Masukkan jumlah barang" required>
+                                        <input type="number" class="form-control" id="jumlahBarang" placeholder="Masukkan jumlah barang" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="tahunPengadaan">Tahun Pengadaan</label>
-                                        <input type="text" class="form-control" id="tahunPengadaan" placeholder="Masukkan tahun pengadaan" required>
+                                        <input type="number" class="form-control" id="tahunPengadaan" placeholder="Masukkan tahun pengadaan" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="penyedia">Penyedia</label>
@@ -151,7 +157,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="nomorKontrak">Nomor Kontrak</label>
-                                        <input type="text" class="form-control" id="nomorKontrak" placeholder="Masukkan nomor kontrak" required>
+                                        <input type="number" class="form-control" id="nomorKontrak" placeholder="Masukkan nomor kontrak" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="keterangan">Keterangan</label>
@@ -160,6 +166,18 @@
                                     <div class="form-group">
                                         <label for="lokasi">Lokasi</label>
                                         <input type="text" class="form-control" id="lokasi" placeholder="Masukkan lokasi" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tersedia">Tersedia</label>
+                                        <input type="number" class="form-control" id="tersedia" placeholder="Jumlah tersedia" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="terpinjam">Terpinjam</label>
+                                        <input type="number" class="form-control" id="terpinjam" placeholder="Jumlah terpinjam" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="rusak">Rusak</label>
+                                        <input type="number" class="form-control" id="rusak" placeholder="Jumlah rusak" required>
                                     </div>
                                 </div>
                                 <div class="modal-footer">

@@ -67,7 +67,6 @@
                                             <div class="small-box bg-success">
                                                 <div class="inner">
                                                     <h3>n</h3>
-
                                                     <p>Barang Tersedia</p>
                                                 </div>
                                                 <div class="icon">
@@ -101,7 +100,6 @@
                                             <div class="small-box bg-warning">
                                                 <div class="inner">
                                                     <h3>n</h3>
-
                                                     <p>Barang Dipinjam</p>
                                                 </div>
                                                 <div class="icon">

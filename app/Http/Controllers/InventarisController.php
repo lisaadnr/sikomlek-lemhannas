@@ -45,6 +45,9 @@ class InventarisController extends Controller
             'nomorKontrak' => 'nullable|string|max:255',
             'keterangan' => 'nullable|string',
             'lokasi' => 'required|string|max:255',
+            'tersedia' => 'required|integer|min:0',
+            'terpinjam' => 'required|integer|min:0',
+            'rusak' => 'required|integer|min:0',
         ]);
 
         Inventaris::create($request->all());
@@ -84,6 +87,9 @@ class InventarisController extends Controller
             'nomorKontrak' => 'nullable|string|max:255',
             'keterangan' => 'nullable|string',
             'lokasi' => 'required|string|max:255',
+            'tersedia' => 'required|integer|min:0',
+            'terpinjam' => 'required|integer|min:0',
+            'rusak' => 'required|integer|min:0',
         ]);
 
         $item = Inventaris::findOrFail($id);
