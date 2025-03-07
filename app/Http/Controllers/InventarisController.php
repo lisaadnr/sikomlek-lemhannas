@@ -19,7 +19,10 @@ class InventarisController extends Controller
 
     public function jumlahBarang(){
         $totalBarang = Inventaris::sum('jumlah');
-        return view('pages.dashboard', compact('totalBarang'));
+        $barangTersedia = Inventaris::sum('tersedia');
+        $barangTerpinjam = Inventaris::sum('terpinjam');
+        $barangRusak = Inventaris::sum('rusak');
+        return view('pages.dashboard', compact('totalBarang', 'barangTersedia', 'barangTerpinjam', 'barangRusak'));
     }
 
     /**

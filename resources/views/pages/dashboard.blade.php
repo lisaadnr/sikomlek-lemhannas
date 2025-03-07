@@ -66,7 +66,7 @@
                                             <!-- small card -->
                                             <div class="small-box bg-success">
                                                 <div class="inner">
-                                                    <h3>n</h3>
+                                                    <h3>{{ $barangTersedia }}</h3>
                                                     <p>Barang Tersedia</p>
                                                 </div>
                                                 <div class="icon">
@@ -82,7 +82,7 @@
                                             <!-- small card -->
                                             <div class="small-box bg-danger">
                                                 <div class="inner">
-                                                    <h3>n</h3>
+                                                    <h3>{{ $barangRusak }}</h3>
                                                     <p>Barang Rusak</p>
                                                 </div>
                                                 <div class="icon">
@@ -99,7 +99,7 @@
                                             <!-- small card -->
                                             <div class="small-box bg-warning">
                                                 <div class="inner">
-                                                    <h3>n</h3>
+                                                    <h3>{{ $barangTerpinjam }}</h3>
                                                     <p>Barang Dipinjam</p>
                                                 </div>
                                                 <div class="icon">
