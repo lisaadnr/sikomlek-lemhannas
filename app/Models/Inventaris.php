@@ -12,13 +12,13 @@ class Inventaris extends Model
     protected $table = 'inventaris';
 
     protected $fillable = [
-        'namaBarang',
+        'nama_barang',
         'merek',
         'tipe',
         'jumlah',
-        'tahunPengadaan',
+        'tahun_pengadaan',
         'penyedia',
-        'nomorKontrak',
+        'nomor_kontrak',
         'keterangan',
         'lokasi',
         'tersedia',

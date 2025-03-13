@@ -88,3 +88,4 @@ Route::get('/navbar', [NavbarController::class, 'index'])->name('navbar');
 
 Route::resource('/pages/stok', InventarisController::class);
 Route::get('/pages/dashboard', [InventarisController::class, 'jumlahBarang'])->name('pages.dashboard');
+Route::get('/pages/inventory', [InventarisController::class, 'chart'])->name('pages.inventory');

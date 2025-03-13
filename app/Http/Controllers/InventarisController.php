@@ -25,6 +25,16 @@ class InventarisController extends Controller
         return view('pages.dashboard', compact('totalBarang', 'barangTersedia', 'barangTerpinjam', 'barangRusak'));
     }
 
+
+    public function chart(){
+        $inventaris = Inventaris::select('nama_barang', 'jumlah')->get();
+
+        $namaBarang = $inventaris->pluck('nama_barang');
+        $jumlahBarang = $inventaris->pluck('jumlah');
+
+        return view('pages.inventory', compact('namaBarang', 'jumlahBarang'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */

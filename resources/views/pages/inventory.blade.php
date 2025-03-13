@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" />
     <!-- Font Awesome -->
@@ -74,6 +73,7 @@
                                     </a>
                                 </div>
                             </div>
+                            
                             <div class="row">
                                 <div class="col-md-12">
                                     <h3>Grafik Ketersediaan Alat</h3>
@@ -96,7 +96,7 @@
                                             </div>
                                         </div>
                                         <div class="card-body">
-                                            <canvas id="barChart" style="width: 100%; height: 400px;"></canvas>
+                                            <canvas id="barangChart" style="width: 100%; height: 400px;"></canvas>
                                         </div>
                                     </div>
                                 </div>
@@ -374,46 +374,32 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- AdminLTE App -->
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/js/adminlte.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-            // Bar Chart Configuration
-            const barCtx = document.getElementById('barChart').getContext('2d');
-            const barChart = new Chart(barCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['Monitor', 'RAM', 'Hard Disk', 'Keyboard', 'Mouse', 'Printer', 'Scanner', 'Webcam', 'Speaker', 'Microphone'],
-                    datasets: [{
-                        label: 'Ketersediaan Barang',
-                        data: [5, 10, 3, 7, 8, 2, 4, 6, 9, 1], // Example data
-                        backgroundColor: 'rgba(229, 184, 244, 0.8)',
-                        borderColor: 'rgba(183, 147, 195, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        tooltip: {
-                            callbacks: {
-                                label: (context) => `${context.label}: ${context.raw}`
-                            }
-                        }
-                    },
-                    scales: {
-                        x: { beginAtZero: true },
-                        y: { beginAtZero: true }
+    <script>
+        var ctx = document.getElementById('barangChart').getContext('2d');
+        var barangChart = new Chart (ctx, {
+            type: 'bar',
+            data: {
+                labels: {!! json_encode($namaBarang) !!},
+                datasets: [{
+                    label: 'Jumlah Barang',
+                    data: {!! json_encode($jumlahBarang) !!},
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
                     }
                 }
-            });
-
-            window.addEventListener('resize', () => {
-                myChart.resize();
-            });
-
+            }
         });
     </script>
-
 </body>
 
 </html>
