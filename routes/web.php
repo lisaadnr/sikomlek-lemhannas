@@ -19,7 +19,7 @@ use App\Http\Controllers\InventarisController;
 */
 
 Route::get('/', function () {
-    return view('pages.dashboard');
+    return redirect()->route('pages.dashboard');
 });
 
 /*
