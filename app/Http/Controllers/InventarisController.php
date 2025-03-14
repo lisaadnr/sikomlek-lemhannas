@@ -26,13 +26,33 @@ class InventarisController extends Controller
     }
 
 
-    public function chart(){
+    public function inventory(){
         $inventaris = Inventaris::select('nama_barang', 'jumlah')->get();
 
         $namaBarang = $inventaris->pluck('nama_barang');
         $jumlahBarang = $inventaris->pluck('jumlah');
-
-        return view('pages.inventory', compact('namaBarang', 'jumlahBarang'));
+        $jumlahPC = Inventaris::where('nama_barang', 'LIKE', '%PC%')->sum('jumlah');
+        $jumlahPrinter = Inventaris::where('nama_barang', 'LIKE', '%PRINTER%')->sum('jumlah');
+        $jumlahLaptop = Inventaris::where('nama_barang', 'LIKE', '%LAPTOP%')->sum('jumlah');
+        $jumlahMouse = Inventaris::where('nama_barang', 'LIKE', '%MOUSE%')->sum('jumlah');
+        $jumlahMonitor = Inventaris::where('nama_barang', 'LIKE', '%MONITOR%')->sum('jumlah');
+        $jumlahKeyboard = Inventaris::where('nama_barang', 'LIKE', '%KEYBOARD%')->sum('jumlah');
+        $jumlahScanner = Inventaris::where('nama_barang', 'LIKE', '%SCANNER%')->sum('jumlah');
+        $jumlahWebcam = Inventaris::where('nama_barang', 'LIKE', '%WEBCAM%')->sum('jumlah');
+        $jumlahSpeaker = Inventaris::where('nama_barang', 'LIKE', '%SPEAKER%')->sum('jumlah');
+        $jumlahMicrophone = Inventaris::where('nama_barang', 'LIKE', '%MICROPHONE%')->sum('jumlah');
+        $jumlahProjector = Inventaris::where('nama_barang', 'LIKE', '%PROJECTOR%')->sum('jumlah');
+        $jumlahRouter = Inventaris::where('nama_barang', 'LIKE', '%ROUTER%')->sum('jumlah');
+        $jumlahSwitch = Inventaris::where('nama_barang', 'LIKE', '%SWITCH%')->sum('jumlah');
+        $jumlahFirewall = Inventaris::where('nama_barang', 'LIKE', '%FIREWALL%')->sum('jumlah');
+        $jumlahNAS = Inventaris::where('nama_barang', 'LIKE', '%NAS%')->sum('jumlah');
+        $jumlahUPS = Inventaris::where('nama_barang', 'LIKE', '%UPS%')->sum('jumlah');
+        $jumlahServer = Inventaris::where('nama_barang', 'LIKE', '%SERVER%')->sum('jumlah');
+        return view('pages.inventory', compact('namaBarang', 'jumlahBarang', 'jumlahPC', 'jumlahPrinter', 'jumlahLaptop',
+                    'jumlahMouse', 'jumlahMonitor', 'jumlahKeyboard', 'jumlahScanner', 'jumlahWebcam',
+                    'jumlahSpeaker', 'jumlahMicrophone', 'jumlahProjector', 'jumlahRouter',
+                    'jumlahSwitch', 'jumlahFirewall', 'jumlahNAS', 'jumlahUPS',
+                    'jumlahServer'));
     }
 
     /**

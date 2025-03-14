@@ -73,7 +73,7 @@
                                     </a>
                                 </div>
                             </div>
-                            
+
                             <div class="row">
                                 <div class="col-md-12">
                                     <h3>Grafik Ketersediaan Alat</h3>
@@ -118,7 +118,7 @@
                                                     <!-- small card -->
                                                     <div class="small-box bg-info">
                                                         <div class="inner">
-                                                            <h3>150</h3>
+                                                            <h3>{{ $jumlahMonitor }}</h3>
                                                             <p>Monitor</p>
                                                         </div>
                                                         <div class="icon">
@@ -133,7 +133,7 @@
                                                     <!-- small card -->
                                                     <div class="small-box bg-success">
                                                         <div class="inner">
-                                                            <h3>120</h3>
+                                                            <h3>{{ $jumlahKeyboard }}</h3>
                                                             <p>Keyboard</p>
                                                         </div>
                                                         <div class="icon">
@@ -148,7 +148,7 @@
                                                     <!-- small card -->
                                                     <div class="small-box bg-warning">
                                                         <div class="inner">
-                                                            <h3>80</h3>
+                                                            <h3>{{ $jumlahMouse }}</h3>
                                                             <p>Mouse</p>
                                                         </div>
                                                         <div class="icon">
@@ -163,7 +163,7 @@
                                                     <!-- small card -->
                                                     <div class="small-box bg-danger">
                                                         <div class="inner">
-                                                            <h3>60</h3>
+                                                            <h3>{{ $jumlahPrinter }}</h3>
                                                             <p>Printer</p>
                                                         </div>
                                                         <div class="icon">
@@ -178,7 +178,7 @@
                                                     <!-- small card -->
                                                     <div class="small-box bg-info">
                                                         <div class="inner">
-                                                            <h3>45</h3>
+                                                            <h3>{{ $jumlahScanner }}</h3>
                                                             <p>Scanner</p>
                                                         </div>
                                                         <div class="icon">
@@ -193,7 +193,7 @@
                                                     <!-- small card -->
                                                     <div class="small-box bg-success">
                                                         <div class="inner">
-                                                            <h3>30</h3>
+                                                            <h3>{{ $jumlahWebcam }}</h3>
                                                             <p>Webcam</p>
                                                         </div>
                                                         <div class="icon">
@@ -208,7 +208,7 @@
                                                     <!-- small card -->
                                                     <div class="small-box bg-warning">
                                                         <div class="inner">
-                                                            <h3>25</h3>
+                                                            <h3>{{ $jumlahSpeaker }}</h3>
                                                             <p>Speaker</p>
                                                         </div>
                                                         <div class="icon">
@@ -223,7 +223,7 @@
                                                     <!-- small card -->
                                                     <div class="small-box bg-danger">
                                                         <div class="inner">
-                                                            <h3>20</h3>
+                                                            <h3>{{ $jumlahMicrophone }}</h3>
                                                             <p>Microphone</p>
                                                         </div>
                                                         <div class="icon">
@@ -238,7 +238,7 @@
                                                     <!-- small card -->
                                                     <div class="small-box bg-info">
                                                         <div class="inner">
-                                                            <h3>15</h3>
+                                                            <h3>{{ $jumlahProjector }}</h3>
                                                             <p>Projector</p>
                                                         </div>
                                                         <div class="icon">
@@ -253,7 +253,7 @@
                                                     <!-- small card -->
                                                     <div class="small-box bg-success">
                                                         <div class="inner">
-                                                            <h3>10</h3>
+                                                            <h3>{{ $jumlahRouter }}</h3>
                                                             <p>Router</p>
                                                         </div>
                                                         <div class="icon">
@@ -268,7 +268,7 @@
                                                     <!-- small card -->
                                                     <div class="small-box bg-warning">
                                                         <div class="inner">
-                                                            <h3>8</h3>
+                                                            <h3>{{ $jumlahSwitch }}</h3>
                                                             <p>Switch</p>
                                                         </div>
                                                         <div class="icon">
@@ -283,7 +283,7 @@
                                                     <!-- small card -->
                                                     <div class="small-box bg-danger">
                                                         <div class="inner">
-                                                            <h3>5</h3>
+                                                            <h3>{{ $jumlahFirewall }}</h3>
                                                             <p>Firewall</p>
                                                         </div>
                                                         <div class="icon">
@@ -298,7 +298,7 @@
                                                     <!-- small card -->
                                                     <div class="small-box bg-info">
                                                         <div class="inner">
-                                                            <h3>3</h3>
+                                                            <h3>{{ $jumlahNAS }}</h3>
                                                             <p>NAS</p>
                                                         </div>
                                                         <div class="icon">
@@ -313,7 +313,7 @@
                                                     <!-- small card -->
                                                     <div class="small-box bg-success">
                                                         <div class="inner">
-                                                            <h3>2</h3>
+                                                            <h3>{{ $jumlahUPS }}</h3>
                                                             <p>UPS</p>
                                                         </div>
                                                         <div class="icon">
@@ -328,7 +328,7 @@
                                                     <!-- small card -->
                                                     <div class="small-box bg-warning">
                                                         <div class="inner">
-                                                            <h3>1</h3>
+                                                            <h3>{{ $jumlahServer }}</h3>
                                                             <p>Server</p>
                                                         </div>
                                                         <div class="icon">
@@ -339,6 +339,37 @@
                                                         </a>
                                                     </div>
                                                 </div>
+                                                <div class="col-lg-3 col-6">
+                                                    <!-- small card -->
+                                                    <div class="small-box bg-danger">
+                                                        <div class="inner">
+                                                            <h3>{{ $jumlahPC }}</h3>
+                                                            <p>PC</p>
+                                                        </div>
+                                                        <div class="icon">
+                                                            <i class="fas fa-shield-alt"></i>
+                                                        </div>
+                                                        <a href="#" class="small-box-footer">
+                                                            More info <i class="fas fa-arrow-circle-right"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 col-6">
+                                                    <!-- small card -->
+                                                    <div class="small-box bg-info">
+                                                        <div class="inner">
+                                                            <h3>{{ $jumlahLaptop }}</h3>
+                                                            <p>Laptop</p>
+                                                        </div>
+                                                        <div class="icon">
+                                                            <i class="fas fa-hdd"></i>
+                                                        </div>
+                                                        <a href="#" class="small-box-footer">
+                                                            More info <i class="fas fa-arrow-circle-right"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
