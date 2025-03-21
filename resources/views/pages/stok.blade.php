@@ -77,7 +77,7 @@
                                                 <th>Tahun Pengadaan</th>
                                                 <th>Penyedia</th>
                                                 <th>No. Kontrak</th>
-                                                <th>Ket.</th>
+                                                <th>Keterangan</th>
                                                 <th>Lokasi</th>
                                                 <th>Tersedia</th>
                                                 <th>Terpinjam</th>
@@ -101,7 +101,21 @@
                                                 <td>{{ $barang->terpinjam }}</td>
                                                 <td>{{ $barang->rusak }}</td>
                                                 <td>
-                                                    <button class="btn btn-primary btn-sm">
+                                                    <button class="btn btn-primary btn-sm btnEdit"
+                                                        data-id="{{ $barang->id}}"
+                                                        data-nama="{{ $barang->nama_barang }}"
+                                                        data-merek="{{ $barang->merek }}"
+                                                        data-tipe="{{ $barang->tipe }}"
+                                                        data-jumlah="{{ $barang->jumlah }}"
+                                                        data-tahun="{{ $barang->tahun_pengadaan }}"
+                                                        data-penyedia="{{ $barang->penyedia }}"
+                                                        data-nomor="{{ $barang->nomor_kontrak }}"
+                                                        data-keterangan="{{ $barang->keterangan }}"
+                                                        data-lokasi="{{ $barang->lokasi }}"
+                                                        data-tersedia="{{ $barang->tersedia }}"
+                                                        data-terpinjam="{{ $barang->terpinjam }}"
+                                                        data-rusak="{{ $barang->rusak }}"
+                                                        data-toggle="modal" data-target="#modalEditHardware">
                                                         <i class="fas fa-edit"></i> Edit
                                                     </button>
                                                     <button class="btn btn-danger btn-sm">
@@ -188,6 +202,86 @@
                         </div>
                     </div>
                 </div>
+                <!-- Modal Edit Hardware -->
+                <div class="modal fade" id="modalEditHardware" tabindex="-1" aria-labelledby="modalEditHardwareLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalEditHardwareLabel">Edit Hardware</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form id="formEditHardware" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <div class="modal-body">
+                                    <input type="hidden" id="editId" name="id">
+
+                                    <!-- Jumlah -->
+                                    <div class="form-group">
+                                        <label for="editJumlah">Jumlah</label>
+                                        <input type="number" class="form-control" id="editJumlah" name="jumlah" required>
+                                    </div>
+
+                                    <!-- Tahun Pengadaan -->
+                                    <div class="form-group">
+                                        <label for="editTahun">Tahun Pengadaan</label>
+                                        <input type="number" class="form-control" id="editTahun" name="tahun_pengadaan" required>
+                                    </div>
+
+                                    <!-- Penyedia -->
+                                    <div class="form-group">
+                                        <label for="editPenyedia">Penyedia</label>
+                                        <input type="text" class="form-control" id="editPenyedia" name="penyedia" required>
+                                    </div>
+
+                                    <!-- Nomor Kontrak -->
+                                    <div class="form-group">
+                                        <label for="editNomor">Nomor Kontrak</label>
+                                        <input type="text" class="form-control" id="editNomor" name="nomor_kontrak" required>
+                                    </div>
+
+                                    <!-- Keterangan -->
+                                    <div class="form-group">
+                                        <label for="editKeterangan">Keterangan</label>
+                                        <input type="text" class="form-control" id="editKeterangan" name="keterangan" required>
+                                    </div>
+
+                                    <!-- Lokasi -->
+                                    <div class="form-group">
+                                        <label for="editLokasi">Lokasi</label>
+                                        <input type="text" class="form-control" id="editLokasi" name="lokasi" required>
+                                    </div>
+
+                                    <!-- Tersedia -->
+                                    <div class="form-group">
+                                        <label for="editTersedia">Tersedia</label>
+                                        <input type="number" class="form-control" id="editTersedia" name="tersedia" required>
+                                    </div>
+
+                                    <!-- Terpinjam -->
+                                    <div class="form-group">
+                                        <label for="editTerpinjam">Terpinjam</label>
+                                        <input type="number" class="form-control" id="editTerpinjam" name="terpinjam" required>
+                                    </div>
+
+                                    <!-- Rusak -->
+                                    <div class="form-group">
+                                        <label for="editRusak">Rusak</label>
+                                        <input type="number" class="form-control" id="editRusak" name="rusak" required>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
             </section>
             
             <!-- /.content -->
@@ -216,6 +310,41 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- AdminLTE App -->
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/js/adminlte.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.btnEdit').on('click', function() {
+                let id = $(this).data('id');
+                let nama = $(this).data('nama');
+                let merek = $(this).data('merek');
+                let tipe = $(this).data('tipe');
+                let jumlah = $(this).data('jumlah');
+                let tahun = $(this).data('tahun');
+                let penyedia = $(this).data('penyedia');
+                let nomor = $(this).data('nomor');
+                let keterangan = $(this).data('keterangan');
+                let lokasi = $(this).data('lokasi');
+                let tersedia = $(this).data('tersedia');
+                let terpinjam = $(this).data('terpinjam');
+                let rusak = $(this).data('rusak');
+
+                $('#editId').val(id);
+                $('#editNama').val(nama);
+                $('#editMerek').val(merek);
+                $('#editTipe').val(tipe);
+                $('#editJumlah').val(jumlah);
+                $('#editTahun').val(tahun);
+                $('#editPenyedia').val(penyedia);
+                $('#editNomor').val(nomor);
+                $('#editKeterangan').val(keterangan);
+                $('#editLokasi').val(lokasi);
+                $('#editTersedia').val(tersedia);
+                $('#editTerpinjam').val(terpinjam);
+                $('#editRusak').val(rusak);
+
+                $('#formEditHardware').attr('action', '/pages/stok/' + id);
+            });
+        });
+    </script>
 
 </body>
 

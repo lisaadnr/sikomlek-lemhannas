@@ -90,3 +90,4 @@ Route::resource('/pages/stok', InventarisController::class);
 Route::get('/pages/dashboard', [InventarisController::class, 'jumlahBarang'])->name('pages.dashboard');
 Route::get('/pages/inventory', [InventarisController::class, 'inventory'])->name('pages.inventory');
 
+Route::put('pages/stok/{$id}', [InventarisController::class, 'update'])->name('stok.update');

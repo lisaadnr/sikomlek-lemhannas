@@ -108,16 +108,13 @@ class InventarisController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         $request->validate([
-            'namaBarang' => 'required|string|max:255',
-            'merek' => 'nullable|string|max:255',
-            'tipe' => 'nullable|string|max:255',
             'jumlah' => 'required|integer|min:1',
-            'tahunPengadaan' => 'required|integer|min:1900|max:' . date('Y'),
+            'tahun_pengadaan' => 'required|integer|min:1900|max:' . date('Y'),
             'penyedia' => 'nullable|string|max:255',
-            'nomorKontrak' => 'nullable|string|max:255',
+            'nomor_kontrak' => 'nullable|string|max:255',
             'keterangan' => 'nullable|string',
             'lokasi' => 'required|string|max:255',
             'tersedia' => 'required|integer|min:0',
@@ -128,7 +125,7 @@ class InventarisController extends Controller
         $item = Inventaris::findOrFail($id);
         $item->update($request->all());
 
-        return redirect()->route('inventaris.index')->with('success', 'Inventaris berhasil diperbarui!');
+        return redirect('/pages/stok')->with('success', 'Data berhasil diperbarui!');
 
     }
 
