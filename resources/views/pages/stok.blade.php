@@ -134,6 +134,17 @@
             
                 <!-- Modal Tambah Hardware -->
                 <div class="modal fade" id="modalTambahHardware" tabindex="-1" aria-labelledby="modalTambahHardwareLabel" aria-hidden="true">
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -142,61 +153,93 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="{{ route('stok.store') }}" method="POST">
+                             <form action="{{ route('stok.store') }}" method="POST">
+                                @csrf
                                 <div class="modal-body">
-                                    <!-- Nama Hardware -->
                                     <div class="form-group">
-                                        <label for="namaHardware">Nama Hardware</label>
-                                        <input type="text" class="form-control" id="namaHardware" placeholder="Masukkan nama hardware" required>
+                                        <label for="nama_barang">Nama Barang</label>
+                                        <input type="text" class="form-control @error('nama_barang') is-invalid @enderror" id="nama_barang" name="nama_barang" value="{{ old('nama_barang') }}" required>
+                                        @error('nama_barang')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
+
                                     <div class="form-group">
-                                        <label for="merekBarang">Merek</label>
-                                        <input type="text" class="form-control" id="merekBarang" placeholder="Masukkan nama merek" required>
+                                        <label for="merek">Merek</label>
+                                        <input type="text" class="form-control" id="merek" name="merek" value="{{ old('merek') }}">
                                     </div>
+
                                     <div class="form-group">
-                                        <label for="tipeBarang">Tipe</label>
-                                        <input type="text" class="form-control" id="tipeBarang" placeholder="Masukkan tipe" required>
+                                        <label for="tipe">Tipe</label>
+                                        <input type="text" class="form-control" id="tipe" name="tipe" value="{{ old('tipe') }}">
                                     </div>
+
                                     <div class="form-group">
-                                        <label for="jumlahBarang">Jumlah</label>
-                                        <input type="number" class="form-control" id="jumlahBarang" placeholder="Masukkan jumlah barang" required>
+                                        <label for="jumlah">Jumlah</label>
+                                        <input type="number" class="form-control @error('jumlah') is-invalid @enderror" id="jumlah" name="jumlah" value="{{ old('jumlah', 1) }}" required min="1">
+                                        @error('jumlah')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
+
                                     <div class="form-group">
-                                        <label for="tahunPengadaan">Tahun Pengadaan</label>
-                                        <input type="number" class="form-control" id="tahunPengadaan" placeholder="Masukkan tahun pengadaan" required>
+                                        <label for="tahun_pengadaan">Tahun Pengadaan</label>
+                                        <input type="number" class="form-control @error('tahun_pengadaan') is-invalid @enderror" id="tahun_pengadaan" name="tahun_pengadaan" value="{{ old('tahun_pengadaan') }}" required min="1900" max="{{ date('Y') }}">
+                                        @error('tahun_pengadaan')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
+
                                     <div class="form-group">
                                         <label for="penyedia">Penyedia</label>
-                                        <input type="text" class="form-control" id="penyedia" placeholder="Masukkan tahun pengadaan" required>
+                                        <input type="text" class="form-control" id="penyedia" name="penyedia" value="{{ old('penyedia') }}">
                                     </div>
+
                                     <div class="form-group">
-                                        <label for="nomorKontrak">Nomor Kontrak</label>
-                                        <input type="number" class="form-control" id="nomorKontrak" placeholder="Masukkan nomor kontrak" required>
+                                        <label for="nomor_kontrak">Nomor Kontrak</label>
+                                        <input type="text" class="form-control" id="nomor_kontrak" name="nomor_kontrak" value="{{ old('nomor_kontrak') }}">
                                     </div>
+
                                     <div class="form-group">
                                         <label for="keterangan">Keterangan</label>
-                                        <input type="text" class="form-control" id="keterangan" placeholder="Masukkan keterangan barang" required>
+                                        <textarea class="form-control" id="keterangan" name="keterangan">{{ old('keterangan') }}</textarea>
                                     </div>
+
                                     <div class="form-group">
                                         <label for="lokasi">Lokasi</label>
-                                        <input type="text" class="form-control" id="lokasi" placeholder="Masukkan lokasi" required>
+                                        <input type="text" class="form-control @error('lokasi') is-invalid @enderror" id="lokasi" name="lokasi" value="{{ old('lokasi') }}" required>
+                                        @error('lokasi')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
+
+                                    <!-- Input untuk tersedia, terpinjam, rusak -->
                                     <div class="form-group">
-                                        <label for="tersedia">Tersedia</label>
-                                        <input type="number" class="form-control" id="tersedia" placeholder="Jumlah tersedia" required>
+                                        <label for="tersedia">Jumlah Tersedia</label>
+                                        <input type="number" class="form-control @error('tersedia') is-invalid @enderror" id="tersedia" name="tersedia" value="{{ old('tersedia', 0) }}" required min="0">
+                                        @error('tersedia')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
+
                                     <div class="form-group">
-                                        <label for="terpinjam">Terpinjam</label>
-                                        <input type="number" class="form-control" id="terpinjam" placeholder="Jumlah terpinjam" required>
+                                        <label for="terpinjam">Jumlah Terpinjam</label>
+                                        <input type="number" class="form-control @error('terpinjam') is-invalid @enderror" id="terpinjam" name="terpinjam" value="{{ old('terpinjam', 0) }}" required min="0">
+                                        @error('terpinjam')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
+
                                     <div class="form-group">
-                                        <label for="rusak">Rusak</label>
-                                        <input type="number" class="form-control" id="rusak" placeholder="Jumlah rusak" required>
+                                        <label for="rusak">Jumlah Rusak</label>
+                                        <input type="number" class="form-control @error('rusak') is-invalid @enderror" id="rusak" name="rusak" value="{{ old('rusak', 0) }}" required min="0">
+                                        @error('rusak')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                    <button type="submit" class="btn btn-success">Simpan</button>
+
+                                    <button type="submit" class="btn btn-primary">Tambah Barang</button>
+                                    <a href="{{ route('stok.index') }}" class="btn btn-secondary">Batal</a>
                                 </div>
                             </form>
                         </div>
@@ -212,7 +255,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form id="formEditHardware" method="POST">
+                            <form   id="formEditHardware" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="modal-body">
@@ -301,6 +344,7 @@
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
+
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

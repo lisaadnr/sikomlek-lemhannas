@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 use App\Models\Inventaris;
@@ -66,35 +67,61 @@ class InventarisController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
     public function store(Request $request)
     {
+        // Validasi input dari user
         $request->validate([
-            'namaBarang' => 'required|string|max:255',
+            'nama_barang' => 'required|string|max:255',
             'merek' => 'nullable|string|max:255',
             'tipe' => 'nullable|string|max:255',
             'jumlah' => 'required|integer|min:1',
-            'tahunPengadaan' => 'required|integer|min:1900|max:' . date('Y'),
+            'tahun_pengadaan' => 'required|integer|min:1900|max:' . date('Y'),
             'penyedia' => 'nullable|string|max:255',
-            'nomorKontrak' => 'nullable|string|max:255',
+            'nomor_kontrak' => 'nullable|string|max:255',
             'keterangan' => 'nullable|string',
             'lokasi' => 'required|string|max:255',
-            'tersedia' => 'required|integer|min:0',
+            'tersedia' => 'required|integer|min:0|gte:terpinjam|gte:rusak',
             'terpinjam' => 'required|integer|min:0',
             'rusak' => 'required|integer|min:0',
         ]);
 
-        Inventaris::create($request->all());
+        try {
+            // Query SQL untuk menyimpan data langsung ke database
+            DB::insert("
+                INSERT INTO inventaris 
+                (nama_barang, merek, tipe, jumlah, tahun_pengadaan, penyedia, nomor_kontrak, keterangan, lokasi, tersedia, terpinjam, rusak, created_at, updated_at) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())
+            ", [
+                $request->nama_barang,
+                $request->merek,
+                $request->tipe,
+                $request->jumlah,
+                $request->tahun_pengadaan,
+                $request->penyedia,
+                $request->nomor_kontrak,
+                $request->keterangan,
+                $request->lokasi,
+                $request->tersedia,
+                $request->terpinjam,
+                $request->rusak
+            ]);
 
-        return redirect()->route('pages.stok')->with('success', 'Inventaris berhasil ditambahkan!');
+            // Redirect dengan pesan sukses
+            return redirect()->route('stok.index')->with('success', 'Data berhasil ditambahkan!');
+        } catch (\Exception $e) {
+            // Menangani kesalahan saat menyimpan data
+            return redirect()->route('stok.index')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        }
     }
+
 
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        $item = Inventaris::findOrFail($id);
-        return view('inventaris.show', compact('item'));
+    
     }
 
     /**
@@ -125,7 +152,7 @@ class InventarisController extends Controller
         $item = Inventaris::findOrFail($id);
         $item->update($request->all());
 
-        return redirect('/pages/stok')->with('success', 'Data berhasil diperbarui!');
+        return redirect()->route('stok.index')->with('success', 'Data berhasil diperbarui!');
 
     }
 
