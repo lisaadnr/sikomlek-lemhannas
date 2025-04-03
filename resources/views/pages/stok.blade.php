@@ -118,9 +118,13 @@
                                                         data-toggle="modal" data-target="#modalEditHardware">
                                                         <i class="fas fa-edit"></i> Edit
                                                     </button>
-                                                    <button class="btn btn-danger btn-sm">
-                                                        <i class="fas fa-trash"></i> Hapus
-                                                    </button>
+                                                    <form action="{{ route('stok.destroy', $barang->id) }}" method="POST" onsubmit="return confirm('Apakah anda yakin ingin menghapus barang ini?');">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger btn-sm">
+                                                            <i class="fas fa-trash"></i> Hapus
+                                                        </button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                             @endforeach       

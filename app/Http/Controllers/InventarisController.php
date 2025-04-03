@@ -164,7 +164,7 @@ class InventarisController extends Controller
         $item = Inventaris::findOrFail($id);
         $item->delete();
 
-        return redirect()->route('inventaris.index')->with('success', 'Inventaris berhasil dihapus!');
+        return redirect()->route('stok.index')->with('success', 'Inventaris berhasil dihapus!');
 
     }
 }
