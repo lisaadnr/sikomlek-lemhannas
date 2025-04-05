@@ -81,10 +81,19 @@ class InventarisController extends Controller
             'nomor_kontrak' => 'nullable|string|max:255',
             'keterangan' => 'nullable|string',
             'lokasi' => 'required|string|max:255',
-            'tersedia' => 'required|integer|min:0|gte:terpinjam|gte:rusak',
-            'terpinjam' => 'required|integer|min:0',
-            'rusak' => 'required|integer|min:0',
+            'tersedia' => 'nullable|integer|min:0',
+            'terpinjam' => 'nullable|integer|min:0',
+            'rusak' => 'nullable|integer|min:0',
         ]);
+
+        $jumlah = $request->jumlah;
+        $terpinjam = $request->terpinjam ?? 0;
+        $rusak = $request->rusak ?? 0;
+        $tersedia = $request->tersedia ?? ($jumlah - $terpinjam - $rusak);
+
+        if (($tersedia + $terpinjam + $rusak) > $jumlah){
+            return redirect()->route('stok.index')->with('error', 'Jumlah total (tersedia + terpinjam + rusak) tidak boleh melebihi jumlah keseluruhan.')->withInput();
+        }
 
         try {
             // Query SQL untuk menyimpan data langsung ke database
@@ -96,22 +105,23 @@ class InventarisController extends Controller
                 $request->nama_barang,
                 $request->merek,
                 $request->tipe,
-                $request->jumlah,
+                $jumlah,
                 $request->tahun_pengadaan,
                 $request->penyedia,
                 $request->nomor_kontrak,
                 $request->keterangan,
                 $request->lokasi,
-                $request->tersedia,
-                $request->terpinjam,
-                $request->rusak
+                $tersedia,
+                $terpinjam,
+                $rusak
             ]);
 
             // Redirect dengan pesan sukses
             return redirect()->route('stok.index')->with('success', 'Data berhasil ditambahkan!');
         } catch (\Exception $e) {
             // Menangani kesalahan saat menyimpan data
-            return redirect()->route('stok.index')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+            return redirect()->route('stok.index')->with('error', 'Terjadi kesalahan: ' . $e->getMessage())
+            ->withInput();
         }
     }
 
