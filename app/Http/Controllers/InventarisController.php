@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
-
 use Illuminate\Http\Request;
 use App\Models\Inventaris;
+use Carbon\Carbon;
 
 class InventarisController extends Controller
 {
@@ -18,12 +18,30 @@ class InventarisController extends Controller
 
     }
 
-    public function jumlahBarang(){
+    public function dashboard(){
+
+        $barangPerBulan = DB::table('inventaris')
+        ->select(DB::raw('MONTH(created_at) as bulan'), DB::raw('COUNT(*) as jumlah'))
+        ->groupBy(DB::raw('MONTH(created_at)'))
+        ->orderBy(DB::raw('MONTH(created_at)'))
+        ->get();
+        $labels = [];
+        $data = [];
+    
+        foreach ($barangPerBulan as $item) {
+            $labels[] = Carbon::create()->month($item->bulan)->format('F'); // Nama bulan
+            $data[] = $item->jumlah;
+        }
+
+
         $totalBarang = Inventaris::sum('jumlah');
         $barangTersedia = Inventaris::sum('tersedia');
         $barangTerpinjam = Inventaris::sum('terpinjam');
         $barangRusak = Inventaris::sum('rusak');
-        return view('pages.dashboard', compact('totalBarang', 'barangTersedia', 'barangTerpinjam', 'barangRusak'));
+        return view('pages.dashboard', compact('totalBarang', 'barangTersedia', 'barangTerpinjam', 'barangRusak',
+        'labels','data'));
+        
+        
     }
 
 

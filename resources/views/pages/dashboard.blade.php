@@ -128,7 +128,7 @@
                                 <div class="card card-primary card-outline">
                                     <div class="card-header">
                                         <h3 class="card-title">
-                                            <i class="far fa-chart-bar"></i> Bar Chart
+                                            <i class="far fa-chart-bar"></i> Data Barang
                                         </h3>
                                         <div class="card-tools">
                                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -150,7 +150,7 @@
                                 <div class="card card-info card-outline">
                                     <div class="card-header">
                                         <h3 class="card-title">
-                                            <i class="fas fa-chart-line"></i> Line Chart
+                                            <i class="fas fa-chart-line"></i> Jumlah Pengunjung
                                         </h3>
                                         <div class="card-tools">
                                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -197,32 +197,25 @@
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/js/adminlte.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Bar Chart Configuration
-            const barCtx = document.getElementById('bar-chart').getContext('2d');
-            const barChart = new Chart(barCtx, {
+            const ctx = document.getElementById('bar-chart').getContext('2d');
+            const barChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                    labels: {!! json_encode($labels) !!},
                     datasets: [{
-                        label: 'Data Barang',
-                        data: [10, 8, 4, 13, 17, 9],
-                        backgroundColor: 'rgba(229, 184, 244, 0.8)',
-                        borderColor: 'rgba(183, 147, 195, 1)',
+                        label: 'Jumlah Barang Masuk per Bulan',
+                        data: {!! json_encode($data) !!},
+                        backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
                         borderWidth: 1
                     }]
                 },
                 options: {
-                    responsive: true,
-                    plugins: {
-                        tooltip: {
-                            callbacks: {
-                                label: (context) => `${context.label}: ${context.raw}`
-                            }
-                        }
-                    },
                     scales: {
-                        x: { beginAtZero: true },
-                        y: { beginAtZero: true }
+                        y: {
+                            beginAtZero: true,
+                            stepSize: 1
+                        }
                     }
                 }
             });
