@@ -221,40 +221,33 @@
             });
     
             // Line Chart Configuration
-            const lineCtx = document.getElementById('line-chart').getContext('2d');
-            const lineChart = new Chart(lineCtx, {
+            window.addEventListener('resize', () => {
+            myChart.resize();
+            });
+        });
+        
+        var ctx = document.getElementById('line-chart').getContext('2d');
+            var chart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                    labels: @json($labels),
                     datasets: [{
-                        label: 'Visitors',
-                        data: [820, 950, 740, 1020, 1130, 1230, 1400],
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        borderWidth: 2,
-                        tension: 0.4
+                        label: 'Jumlah Pengunjung',
+                        data: @json($data),
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        fill: false,
+                        tension: 0.1
                     }]
                 },
                 options: {
                     responsive: true,
-                    plugins: {
-                        tooltip: {
-                            callbacks: {
-                                label: (context) => `${context.label}: ${context.raw}`
-                            }
-                        }
-                    },
                     scales: {
-                        x: { beginAtZero: true },
-                        y: { beginAtZero: true }
+                        y: {
+                            beginAtZero: true
+                        }
                     }
                 }
             });
-
-            window.addEventListener('resize', () => {
-    myChart.resize();
-});
-        });
     </script>
 </body>
 </html>

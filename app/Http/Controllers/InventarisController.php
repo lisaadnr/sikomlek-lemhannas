@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Inventaris;
+use App\Models\Pengunjung;
 use Carbon\Carbon;
 
 class InventarisController extends Controller
@@ -20,11 +21,28 @@ class InventarisController extends Controller
 
     public function dashboard(){
 
+        $pengunjungBulanan = Pengunjung::select(
+            DB::raw('MONTH(visited_at) as bulan'),
+            DB::raw('COUNT(*) as jumlah')
+        )
+        ->groupBy(DB::raw('MONTH(visited_at)'))
+        ->orderBy(DB::raw('MONTH(visited_at)'))
+        ->get();
+
+        $labelPengunjung = [];
+        $dataPengunjung = [];
+    
+        foreach ($pengunjungBulanan as $item) {
+            $labelPengunjung[] = \Carbon\Carbon::create()->month($item->bulan)->locale('id')->translatedFormat('F');
+            $dataPengunjung[] = $item->jumlah;
+        }
+
         $barangPerBulan = DB::table('inventaris')
         ->select(DB::raw('MONTH(created_at) as bulan'), DB::raw('COUNT(*) as jumlah'))
         ->groupBy(DB::raw('MONTH(created_at)'))
         ->orderBy(DB::raw('MONTH(created_at)'))
         ->get();
+
         $labels = [];
         $data = [];
     
@@ -39,8 +57,7 @@ class InventarisController extends Controller
         $barangTerpinjam = Inventaris::sum('terpinjam');
         $barangRusak = Inventaris::sum('rusak');
         return view('pages.dashboard', compact('totalBarang', 'barangTersedia', 'barangTerpinjam', 'barangRusak',
-        'labels','data'));
-        
+        'labels','data','labelPengunjung','dataPengunjung'));
         
     }
 
