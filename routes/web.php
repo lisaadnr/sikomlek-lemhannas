@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\NavbarController;
 use App\Http\Controllers\InventarisController;
+use App\Http\Controllers\InformasiAlatController;
 
 
 /*
@@ -93,3 +94,4 @@ Route::get('/pages/dashboard', [InventarisController::class, 'dashboard'])->name
 
 Route::get('/pages/inventory', [InventarisController::class, 'inventory'])->name('pages.inventory');
 
+Route::get('/pages/informasialat', [InformasiAlatController::class, 'index'])->name('pages.informasialat');
