@@ -54,40 +54,38 @@
                                 <div class="card-header">
                                     <h3 class="card-title">Edit Profil</h3>
                                 </div>
-                                <form>
+                                <form action="{{ route('pages.pengaturanakun') }}" method="POST">
+                                    @csrf
                                     <div class="card-body">
-                                        <!-- Foto Profil -->
-                                        <div class="form-group text-center">
-                                            <label for="fotoProfil">Foto Profil</label>
-                                            <div class="mb-3">
-                                                <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image" style="width: 100px; height: 100px;">
-                                            </div>
-                                            <input type="file" class="form-control-file" id="fotoProfil">
-                                        </div>
-            
-                                        <!-- Nama Lengkap -->
-                                        <div class="form-group">
-                                            <label for="namaLengkap">Nama Lengkap</label>
-                                            <input type="text" class="form-control" id="namaLengkap" placeholder="Masukkan nama lengkap" value="John Doe">
-                                        </div>
             
                                         <!-- Email -->
                                         <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <input type="email" class="form-control" id="email" placeholder="Masukkan email" value="johndoe@example.com">
+                                            <label for="username">Username</label>
+                                            <input type="text" class="form-control" id="username" name="username" value="{{ Auth::user()->username }}" readonly>
                                         </div>
             
                                         <!-- Password -->
                                         <div class="form-group">
                                             <label for="password">Password Baru</label>
-                                            <input type="password" class="form-control" id="password" placeholder="Masukkan password baru">
+                                            <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan password baru" required>
                                         </div>
             
                                         <!-- Konfirmasi Password -->
                                         <div class="form-group">
-                                            <label for="konfirmasiPassword">Konfirmasi Password</label>
-                                            <input type="password" class="form-control" id="konfirmasiPassword" placeholder="Konfirmasi password baru">
+                                            <label for="password_confirmation">Konfirmasi Password</label>
+                                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Konfirmasi password baru" required>
                                         </div>
+
+                                        @if(session('success'))
+                                            <div class="alert alert-success mt-2">
+                                                {{ session('success') }}
+                                            </div>
+                                        @elseif(session('error'))
+                                            <div class="alert alert-danger mt-2">
+                                                {{ session('error') }}
+                                            </div>
+                                        @endif
+                                        
                                     </div>
                                     <div class="card-footer text-center">
                                         <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan Perubahan</button>

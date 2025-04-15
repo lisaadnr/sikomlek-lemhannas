@@ -6,7 +6,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\NavbarController;
 use App\Http\Controllers\InventarisController;
 use App\Http\Controllers\InformasiAlatController;
-
+use App\Http\Controllers\PengaturanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,3 +95,5 @@ Route::get('/pages/dashboard', [InventarisController::class, 'dashboard'])->name
 Route::get('/pages/inventory', [InventarisController::class, 'inventory'])->name('pages.inventory');
 
 Route::get('/pages/informasialat', [InformasiAlatController::class, 'index'])->name('pages.informasialat');
+
+Route::post('/pages/pengaturanakun', [PengaturanController::class, 'update'])->name('pages.pengaturanakun');
