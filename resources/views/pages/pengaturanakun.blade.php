@@ -57,7 +57,7 @@
                                 <form action="{{ route('pages.pengaturanakun') }}" method="POST">
                                     @csrf
                                     <div class="card-body">
-            
+                                        
                                         <!-- Email -->
                                         <div class="form-group">
                                             <label for="username">Username</label>

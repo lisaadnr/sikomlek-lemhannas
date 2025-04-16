@@ -21,4 +21,11 @@ class PengaturanController extends Controller
 
         return redirect()->back()->with('success', 'Password berhasil diubah.');
     }
+
+    public function index()
+    {
+    
+        return view('pages.pengaturanakun');
+
+    }
 }

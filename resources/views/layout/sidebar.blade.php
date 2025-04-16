@@ -88,14 +88,14 @@
                                 <p>Pengaturan Akun</p>
                             </a>
                         </li>
-
+                        <!--
                         <li class="nav-item">
                             <a href="{{ route('pages.hakakses') }}" class="nav-link">
                                 <i class="nav-icon fas fa-user-shield"></i>
                                 <p>Peran dan Hak Akses</p>
                             </a>
                         </li>
-
+                        -->
                         <!-- Jika user belum login, tampilkan menu login dan register -->
                         <li class="nav-header">LAINNYA</li>
                         <li class="nav-item">

@@ -88,7 +88,11 @@ Route::prefix('pages')->name('pages.')->group(function () {
 
 Route::get('/navbar', [NavbarController::class, 'index'])->name('navbar');
 
-Route::resource('/pages/stok', InventarisController::class);
+Route::middleware(['auth'])->group(function () {
+    Route::resource('/pages/stok', InventarisController::class);
+    Route::post('/pages/pengaturanakun', [PengaturanController::class, 'update'])->name('pages.pengaturanakun');
+    Route::get('/pages/pengaturanakun', [PengaturanController::class, 'index'])->name('pages.pengaturanakun');
+});
 
 Route::get('/pages/dashboard', [InventarisController::class, 'dashboard'])->name('pages.dashboard');
 
