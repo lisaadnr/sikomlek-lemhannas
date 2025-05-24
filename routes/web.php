@@ -7,6 +7,7 @@ use App\Http\Controllers\NavbarController;
 use App\Http\Controllers\InventarisController;
 use App\Http\Controllers\InformasiAlatController;
 use App\Http\Controllers\PengaturanController;
+use App\Http\Controllers\PeminjamanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -101,3 +102,11 @@ Route::get('/pages/inventory', [InventarisController::class, 'inventory'])->name
 Route::get('/pages/informasialat', [InformasiAlatController::class, 'index'])->name('pages.informasialat');
 
 Route::post('/pages/pengaturanakun', [PengaturanController::class, 'update'])->name('pages.pengaturanakun');
+
+Route::get('/pages/formpeminjaman', [PeminjamanController::class, 'create'])->name('pages.formpeminjaman');
+
+Route::post('/peminjaman', [PeminjamanController::class, 'store'])->name('peminjaman.store');
+
+Route::get('/pages/formpengembalian', [PeminjamanController::class, 'viewPengembalian'])->name('pages.formpengembalian');
+
+Route::post('/pengembalian', [PeminjamanController::class, 'pengembalian'])->name('peminjaman.pengembalian');

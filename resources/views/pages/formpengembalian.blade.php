@@ -56,82 +56,31 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Nama Lengkap</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                                placeholder="Masukkan Nama Lengkap">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1">NIP/NRP</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1"
-                                                placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1">Unit Kerja</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1"
-                                                placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Barang yang Dipinjam</label>
-                                            <select class="form-control">
-                                                <option>option 1</option>
-                                                <option>option 2</option>
-                                                <option>option 3</option>
-                                                <option>option 4</option>
-                                                <option>option 5</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1">Merk/Type</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1"
-                                                placeholder="Merk/Type">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1">No. Seri</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1"
-                                                placeholder="No. Seri">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Tanggal Perolehan</label>
-                                            <div class="input-group date" id="reservationdate"
-                                                data-target-input="nearest">
-                                                <input type="text" class="form-control datetimepicker-input"
-                                                    data-target="#reservationdate" />
-                                                <div class="input-group-append" data-target="#reservationdate"
-                                                    data-toggle="datetimepicker">
-                                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1">Jumlah Unit</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1"
-                                                placeholder="Jumlah Unit">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1">Kelengkapan</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1"
-                                                placeholder="Kelengkapan">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Kondisi</label>
-                                            <select class="form-control">
-                                                <option>Baik</option>
-                                                <option>Rusak</option>
-                                            </select>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12" id="accordion">
+                                <form action="{{ route('peminjaman.pengembalian') }}" method="POST">
+                                    @csrf
+                                    <div class="form-group">
+                                        <label for="peminjaman_id">Pilih Peminjaman</label>
+                                        <select name="peminjaman_id" class="form-control" required>
+                                            <option value="">-- Pilih Peminjaman --</option>
+                                            @foreach ($peminjaman as $item)
+                                                <option value="{{ $item->id }}">
+                                                    {{ $item->nama_peminjam }} - {{ $item->inventaris->nama_barang }} ({{ $item->jumlah_unit }} unit)
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
 
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12 mt-3 text-center">
-                                                <button type="submit" class="btn btn-primary btn-lg">Ajukan</button>
-                                            </div>
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="jumlah_unit">Jumlah Unit yang Dikembalikan</label>
+                                        <input type="number" name="jumlah_unit" class="form-control" min="1" required>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">Proses Pengembalian</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
             <!-- /.content -->
         </div>

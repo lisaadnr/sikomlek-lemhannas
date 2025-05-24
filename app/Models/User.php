@@ -41,4 +41,10 @@ class User extends Authenticatable
         'username_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function peminjamans()
+{
+    return $this->hasMany(Peminjaman::class);
+}
+
 }
