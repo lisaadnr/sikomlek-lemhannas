@@ -38,15 +38,22 @@ class InventarisController extends Controller
         }
 
         $barangPerBulan = DB::table('inventaris')
-        ->select(DB::raw('MONTH(created_at) as bulan'), DB::raw('COUNT(*) as jumlah'))
-        ->groupBy(DB::raw('MONTH(created_at)'))
-        ->orderBy(DB::raw('MONTH(created_at)'))
+        ->select(
+            DB::raw('YEAR(created_at) as tahun'),
+            DB::raw('MONTH(created_at) as bulan'),
+            DB::raw('SUM(tersedia) as jumlah')  // ganti COUNT(*) jadi SUM(tersedia)
+        )
+        ->groupBy(DB::raw('YEAR(created_at)'), DB::raw('MONTH(created_at)'))
+        ->orderBy(DB::raw('YEAR(created_at)'), 'ASC')
+        ->orderBy(DB::raw('MONTH(created_at)'), 'ASC')
         ->get();
+
 
         $labels = [];
         $data = [];
     
         foreach ($barangPerBulan as $item) {
+            
             $labels[] = Carbon::create()->month($item->bulan)->format('F'); // Nama bulan
             $data[] = $item->jumlah;
         }
@@ -56,6 +63,7 @@ class InventarisController extends Controller
         $barangTersedia = Inventaris::sum('tersedia');
         $barangTerpinjam = Inventaris::sum('terpinjam');
         $barangRusak = Inventaris::sum('rusak');
+
         return view('pages.dashboard', compact('totalBarang', 'barangTersedia', 'barangTerpinjam', 'barangRusak',
         'labels','data','labelPengunjung','dataPengunjung'));
         
