@@ -60,6 +60,12 @@ class PeminjamanController extends Controller
             'tanggal_kembali' => 'nullable|date|after_or_equal:tanggal_pinjam',
         ]);
 
+        $inventaris = Inventaris::findOrFail($request->inventaris_id);
+
+        if ($request->jumlah_unit > $inventaris->tersedia) {
+            return back()->withErrors(['jumlah_unit' => 'Jumlah unit melebihi stok yang tersedia.'])->withInput();
+        }
+
         Peminjaman::create([
             'nama_peminjam' => $request->nama_peminjam,
             'nip' => $request->nip,
@@ -71,11 +77,6 @@ class PeminjamanController extends Controller
             'status' => 'dipinjam'
         ]);
 
-        $inventaris = Inventaris::findOrFail($request->inventaris_id);
-
-        if ($request->jumlah_unit > $inventaris->tersedia) {
-            return back()->withErrors(['jumlah_unit' => 'Jumlah unit melebihi stok yang tersedia.']);
-        }
 
         $inventaris->tersedia -= $request->jumlah_unit;
         $inventaris->terpinjam += $request->jumlah_unit;

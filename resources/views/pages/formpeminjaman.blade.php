@@ -66,12 +66,12 @@
 
         <div class="form-group">
             <label for="nip">NIP/NRP</label>
-            <input type="text" class="form-control" name="nip" id="nip" placeholder="Masukkan NIP/NRP">
+            <input type="text" class="form-control" name="nip" id="nip" placeholder="Masukkan NIP/NRP" required>
         </div>
 
         <div class="form-group">
             <label for="unit_kerja">Unit Kerja</label>
-            <input type="text" class="form-control" name="unit_kerja" id="unit_kerja" placeholder="Masukkan Unit Kerja">
+            <input type="text" class="form-control" name="unit_kerja" id="unit_kerja" placeholder="Masukkan Unit Kerja" required>
         </div>
 
         <!-- Barang dari Inventaris -->
