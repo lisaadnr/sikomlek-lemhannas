@@ -31,9 +31,6 @@
 
     </nav>
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <a href="#" class="brand-link logo-switch">
-        <img src="" alt="Logo atau Tulisan">
-    </a>
     <div class="sidebar">
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview" role="menu">
