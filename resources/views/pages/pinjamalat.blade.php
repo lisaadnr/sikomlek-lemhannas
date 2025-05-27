@@ -55,9 +55,9 @@
                                 </div>
                                 <div class="card-body">
                                     <ol>
-                                        <li>ashdkjha</li>
-                                        <li>jdgsdk</li>
-                                        <li>slkdjaksdka</li>
+                                        <li>Alat hanya boleh dipinjam untuk keperluan dinas/pekerjaan</li>
+                                        <li>Peminjaman dilakukan dengan mengisi form peminjaman secara lengkap</li>
+                                        <li>Jumlah unit yang dipinjam harus sesuai dengan kebutuhan</li>
                                     </ol>
                                 </div>
                             </div>
@@ -70,9 +70,9 @@
                                 </div>
                                 <div class="card-body">
                                     <ol>
-                                        <li>ashdkjha</li>
-                                        <li>jdgsdk</li>
-                                        <li>slkdjaksdka</li>
+                                        <li>Kelengkapan alat sama seperti saat dipinjam</li>
+                                        <li>Jika ada kehilangan akan diberikan denda</li>
+                                        <li>Apabila barang rusak, wajib melaporkan ke staf Komlek dan bertanggung jawab</li>
                                     </ol>
                                 </div>
                             </div>
