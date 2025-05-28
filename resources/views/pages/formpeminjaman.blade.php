@@ -61,7 +61,7 @@
     <div class="card-body">
         <div class="form-group">
             <label for="nama_peminjam">Nama Lengkap</label>
-            <input type="text" class="form-control" name="nama_peminjam" id="nama_peminjam" placeholder="Masukkan Nama Lengkap">
+            <input type="text" class="form-control" name="nama_peminjam" id="nama_peminjam" placeholder="Masukkan Nama Lengkap" required>
         </div>
 
         <div class="form-group">

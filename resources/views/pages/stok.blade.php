@@ -170,12 +170,12 @@
 
                                     <div class="form-group">
                                         <label for="merek">Merek</label>
-                                        <input type="text" class="form-control" id="merek" name="merek" value="{{ old('merek') }}">
+                                        <input type="text" class="form-control" id="merek" name="merek" value="{{ old('merek') }}" required>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="tipe">Tipe</label>
-                                        <input type="text" class="form-control" id="tipe" name="tipe" value="{{ old('tipe') }}">
+                                        <input type="text" class="form-control" id="tipe" name="tipe" value="{{ old('tipe') }}" required>
                                     </div>
 
                                     <div class="form-group">
@@ -196,12 +196,12 @@
 
                                     <div class="form-group">
                                         <label for="penyedia">Penyedia</label>
-                                        <input type="text" class="form-control" id="penyedia" name="penyedia" value="{{ old('penyedia') }}">
+                                        <input type="text" class="form-control" id="penyedia" name="penyedia" value="{{ old('penyedia') }}" required>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="nomor_kontrak">Nomor Kontrak</label>
-                                        <input type="text" class="form-control" id="nomor_kontrak" name="nomor_kontrak" value="{{ old('nomor_kontrak') }}">
+                                        <input type="text" class="form-control" id="nomor_kontrak" name="nomor_kontrak" value="{{ old('nomor_kontrak') }}" required>
                                     </div>
 
                                     <div class="form-group">
@@ -292,7 +292,7 @@
                                     <!-- Keterangan -->
                                     <div class="form-group">
                                         <label for="editKeterangan">Keterangan</label>
-                                        <input type="text" class="form-control" id="editKeterangan" name="keterangan" required>
+                                        <input type="text" class="form-control" id="editKeterangan" name="keterangan">
                                     </div>
 
                                     <!-- Lokasi -->
